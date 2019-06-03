@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_143659) do
+ActiveRecord::Schema.define(version: 2019_06_03_150932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "number"
+    t.string "message"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_emergency_contacts_on_user_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "type"
+    t.string "description"
+    t.string "threat_level"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "occurence_timedate"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +47,14 @@ ActiveRecord::Schema.define(version: 2019_06_03_143659) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "frequent_address"
+    t.integer "number_of_reports"
+    t.string "user_type"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "emergency_contacts", "users"
+  add_foreign_key "reports", "users"
 end
