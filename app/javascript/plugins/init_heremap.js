@@ -29,15 +29,23 @@ const initMap = () => {
     pixelRatio: pixelRatio
     });
 
-  // Lets add markers here
-  // We assume we get a list of markers(coordinates) from the DOM
-  // const markerArray = [{lat:50.8667, lng:4.3508}];
-  const actualMarkers = JSON.parse(targetElement.dataset.markers);
+  // Lets add markers and have the map focus on them
+  function addMarkersAndSetViewBounds() {
+    const reports = []
+    const actualMarkers = JSON.parse(targetElement.dataset.markers);
 
-  actualMarkers.forEach((marker) => {
-    const markerObject = new H.map.Marker(marker);
-    map.addObject(markerObject);
-  });
+    actualMarkers.forEach((marker) => {
+      const markerObject = new H.map.Marker(marker);
+      reports.push(new H.map.Marker({lat:marker.lat,  lng:marker.lng}));
+    });
+
+    const group = new H.map.Group();
+    group.addObjects(reports);
+      map.addObject(group);
+
+    // get geo bounding box for the group and set it to the map
+    map.setViewBounds(group.getBounds());
+  }
 
   // ------------------------- Geocoding starts here
   // Create the parameters for the geocoding request:
@@ -83,6 +91,7 @@ const initMap = () => {
   // geocoder.geocode(geocodingParams, onResult, function(e) {
   //   alert(e);
   // });
+  addMarkersAndSetViewBounds(map)
 }
 
 
