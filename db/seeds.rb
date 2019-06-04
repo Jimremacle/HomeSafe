@@ -13,7 +13,7 @@ Report.delete_all
 
 reports_attribute = [
   {
-    Type: "Verbal",
+    report_type: "Verbal",
     description:"A man insulted me",
     longitude:4.3641,
     latitude:50.8454,
@@ -22,7 +22,7 @@ reports_attribute = [
     user_id: 1
   },
   {
-    Type: "Physical",
+    report_type: "Physical",
     description:"A man tried to take my hand",
     longitude:4.3641,
     latitude:50.8464,
@@ -31,7 +31,7 @@ reports_attribute = [
     user_id: 1
   },
   {
-    Type: "Physical",
+    report_type: "Physical",
     description:"A man chased me",
     longitude:4.4338,
     latitude:50.8167,
@@ -40,7 +40,7 @@ reports_attribute = [
     user_id: 2
   },
   {
-    Type: "Verbal",
+    report_type: "Verbal",
     description:"A man yelled at me",
     longitude:4.4038,
     latitude:50.8667,
@@ -49,7 +49,7 @@ reports_attribute = [
     user_id: 2
   },
   {
-    Type: "Physical",
+    report_type: "Physical",
     description:"A man chased me",
     longitude:4.350585,
     latitude:50.844805,
@@ -58,7 +58,7 @@ reports_attribute = [
     user_id: 3
   },
   {
-    Type: "Feeling",
+    report_type: "Feeling",
     description:"Creepy neighborhood",
     longitude:4.344922,
     latitude:50.840470,
@@ -67,7 +67,7 @@ reports_attribute = [
     user_id: 3
   },
   {
-    Type: "Feeling",
+    report_type: "Feeling",
     description:"Bad neighborhood",
     longitude:4.344792,
     latitude:50.847377,
@@ -76,7 +76,7 @@ reports_attribute = [
     user_id: 4
   },
   {
-    Type: "Verbal",
+    report_type: "Verbal",
     description:"A man wanted to sell me drugs",
     longitude:4.352064,
     latitude:50.852751,
@@ -85,7 +85,7 @@ reports_attribute = [
     user_id: 4
   },
   {
-    Type: "Physicak",
+    report_type: "Physical",
     description:"Saw a huge fight",
     longitude:4.369154,
     latitude:50.858768,
@@ -94,7 +94,7 @@ reports_attribute = [
     user_id: 5
   },
   {
-    Type: "Feeling",
+    report_type: "Feeling",
     description:"A man wanted to sell me drugs",
     longitude:4.363870,
     latitude:50.860309,
