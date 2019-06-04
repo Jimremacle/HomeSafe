@@ -87,7 +87,7 @@ reports_attribute = [
     user_id: (@userId - 1)
   },
   {
-    report_type: "Physicak",
+    report_type: "Physical",
     description:"Saw a huge fight",
     longitude:4.369154,
     latitude:50.858768,
