@@ -28,7 +28,7 @@ const initMap = () => {
     zoom: 4,
     pixelRatio: pixelRatio
     });
-  
+
   // Lets add markers here
   // We assume we get a list of markers(coordinates) from the DOM
   // const markerArray = [{lat:50.8667, lng:4.3508}];
