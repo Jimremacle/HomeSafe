@@ -1,15 +1,17 @@
 require 'faker'
 
+Report.delete_all
+User.delete_all
+
 5.times do
   ename = Faker::Internet.email
   epass = Faker::Internet.password
   address = Faker::Address.street_address
   photo = Faker::Avatar.image("my-own-slug", "50x50")
-  User.create(email: ename, password: epass, frequent_address: address, avatar: photo)
+  usercreated = User.create(email: ename, password: epass, frequent_address: address, avatar: photo)
   puts "Done Seeding..."
+  @userId = usercreated.id
 end
-
-Report.delete_all
 
 reports_attribute = [
   {
@@ -19,7 +21,7 @@ reports_attribute = [
     latitude:50.8454,
     occurence_timedate: "2019/06/05 20:50:00",
     address: "Cantersteen 10 Bruxelles",
-    user_id: 1
+    user_id: (@userId - 4)
   },
   {
     report_type: "Physical",
@@ -28,7 +30,7 @@ reports_attribute = [
     latitude:50.8464,
     occurence_timedate: "2019-06-05 21:50:00",
     address: "Place de la Nation Bruxelles",
-    user_id: 1
+    user_id: (@userId - 4)
   },
   {
     report_type: "Physical",
@@ -37,7 +39,7 @@ reports_attribute = [
     latitude:50.8167,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Avenue Roger Hainault Auderghem",
-    user_id: 2
+    user_id: (@userId - 3)
   },
   {
     report_type: "Verbal",
@@ -46,7 +48,7 @@ reports_attribute = [
     latitude:50.8667,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Avenue des Loisirs 11 Evere",
-    user_id: 2
+    user_id: (@userId - 3)
   },
   {
     report_type: "Physical",
@@ -55,7 +57,7 @@ reports_attribute = [
     latitude:50.844805,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Stalingrad Bruxelles",
-    user_id: 3
+    user_id: (@userId - 2)
   },
   {
     report_type: "Feeling",
@@ -64,7 +66,7 @@ reports_attribute = [
     latitude:50.840470,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Marolles Bruxelles",
-    user_id: 3
+    user_id: (@userId - 2)
   },
   {
     report_type: "Feeling",
@@ -73,7 +75,7 @@ reports_attribute = [
     latitude:50.847377,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Rue Van Artevelde 55 Bruxelles",
-    user_id: 4
+    user_id: (@userId - 1)
   },
   {
     report_type: "Verbal",
@@ -82,7 +84,7 @@ reports_attribute = [
     latitude:50.852751,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Rue Vander Elst 17 Bruxelles",
-    user_id: 4
+    user_id: (@userId - 1)
   },
   {
     report_type: "Physical",
@@ -91,7 +93,7 @@ reports_attribute = [
     latitude:50.858768,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Place de la Reine Bruxelles",
-    user_id: 5
+    user_id: @userId
   },
   {
     report_type: "Feeling",
@@ -100,8 +102,10 @@ reports_attribute = [
     latitude:50.860309,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Rue de la Fraternité Schaerbeek",
-    user_id: 5
+    user_id: @userId
   }
 ]
+
+Report.create!(reports_attribute)
 puts "Done Seeding..."
 
