@@ -1,9 +1,22 @@
 <div class="container">
   <h1>Welcome</h1>
+  <div>
+    <div>
+      <% @reports.each do |report| %>
+        <ul>
+          <li> <%= report.report_type %> : <%= report.description %> </li>
+        </ul>
+      <% end %>
+    </div>
+    <div>
+      <div
+        id="mapContainer"
+        style="width: 100%;
+        height: 600px;"
 
-  <% @reports.each do |report| %>
-    <ul>
-      <li> <%= report.report_type %> : <%= report.description %> </li>
-    </ul>
-  <% end %>
+        data-here-app-id="<%= ENV['here_app_id'] %>"
+        data-here-app-code="<%= ENV['here_app_code'] %>"
+      ></div>
+    </div>
+  </div>
 </div>
