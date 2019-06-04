@@ -4,7 +4,7 @@
       id="mapContainer"
       style="width: 65%;
       height: calc(100vh - 64px);"
-
+      data-markers="<%= @markers.to_json %>"
       data-here-app-id="<%= ENV['here_app_id'] %>"
       data-here-app-code="<%= ENV['here_app_code'] %>"
     ></div>

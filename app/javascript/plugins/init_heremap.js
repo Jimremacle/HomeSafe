@@ -4,6 +4,7 @@ const initMap = () => {
   const targetElement = document.getElementById('mapContainer');
   const appId = targetElement.dataset.hereAppId
   const appCode = targetElement.dataset.hereAppCode
+  console.log
 
   // Instantiate a map and platform object:
   const platform = new H.service.Platform({
@@ -27,7 +28,19 @@ const initMap = () => {
     zoom: 4,
     pixelRatio: pixelRatio
     });
+  
+  // Lets add markers here
+  // We assume we get a list of markers(coordinates) from the DOM
+  // const markerArray = [{lat:50.8667, lng:4.3508}];
+  const actualMarkers = JSON.parse(targetElement.dataset.markers);
 
+  actualMarkers.forEach((marker) => {
+    const markerObject = new H.map.Marker(marker);
+    map.addObject(markerObject);
+  });
+
+  // ------------------------- Geocoding starts here
+  // Create the parameters for the geocoding request:
 
   //Step 3: make the map interactive
   const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
@@ -38,11 +51,13 @@ const initMap = () => {
 
 
   // // Create the parameters for the geocoding request:
+
   // const geocodingParams = {
   //     searchText: 'Rue de la Fraternité Schaerbeek'
   //   };
 
-  // // Define a callback function to process the geocoding response:
+  // Define a callback function to process the geocoding response:
+
   // const onResult = function(result) {
   //   const locations = result.Response.View[0].Result;
   //     position,
@@ -58,12 +73,13 @@ const initMap = () => {
   //   }
   // };
 
-  // // Get an instance of the geocoding service:
+  // Get an instance of the geocoding service:
   // const geocoder = platform.getGeocodingService();
 
-  // // Call the geocode method with the geocoding parameters,
-  // // the callback and an error callback function (called if a
-  // // communication error occurs):
+  // Call the geocode method with the geocoding parameters,
+  // the callback and an error callback function (called if a
+  // communication error occurs):
+
   // geocoder.geocode(geocodingParams, onResult, function(e) {
   //   alert(e);
   // });
