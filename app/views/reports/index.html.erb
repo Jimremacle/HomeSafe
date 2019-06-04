@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Welcome</h1>
+
+  <% @reports.each do |report| %>
+    <ul>
+      <li> <%= report.report_type %> : <%= report.description %> </li>
+    </ul>
+  <% end %>
+</div>
