@@ -31,18 +31,32 @@ const initMap = () => {
 
   // Lets add markers and have the map focus on them
   function addMarkersAndSetViewBounds() {
+    const group = new H.map.Group();
+    map.addObject(group);
+
     const reports = []
     const actualMarkers = JSON.parse(targetElement.dataset.markers);
 
+    group.addEventListener('tap', function (evt) {
+      // event target is the marker itself, group is a parent event target
+      // for all objects that it contains
+      var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
+        // read custom data
+        content: evt.target.getData()
+      });
+      // show info bubble
+      console.log(evt.target.getData())
+      ui.addBubble(bubble);
+    }, false);
+
     actualMarkers.forEach((marker) => {
-      const markerObject = new H.map.Marker(marker);
-      reports.push(new H.map.Marker({lat:marker.lat,  lng:marker.lng}));
+      const markerObject = new H.map.Marker({lat:marker.lat, lng:marker.lng})
+      markerObject.setData('div');
+      reports.push(markerObject);
+      // marker.setData(marker.infoWindow);
     });
 
-    const group = new H.map.Group();
     group.addObjects(reports);
-      map.addObject(group);
-
     // get geo bounding box for the group and set it to the map
     map.setViewBounds(group.getBounds());
   }
