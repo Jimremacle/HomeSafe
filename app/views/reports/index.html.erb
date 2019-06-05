@@ -7,3 +7,26 @@
     </ul>
   <% end %>
 </div>
+
+<div>
+
+  <%= form_tag reports_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Brussels"
+    %>
+    <%= submit_tag "Geolocate!" %>
+  <% end %>
+
+  <p><%= @latitude %></p>
+  <p><%= @longitude %></p>
+
+
+
+
+</div>
+
+<%#
+@here.Response.View.Result.Location.DisplayPosition.Latitude
+%>
