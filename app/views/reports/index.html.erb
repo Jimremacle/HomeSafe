@@ -8,13 +8,8 @@
       data-here-app-id="<%= ENV['here_app_id'] %>"
       data-here-app-code="<%= ENV['here_app_code'] %>"
     ></div>
-    <div>
-      <% @reports.each do |report| %>
-        <ul>
-          <li> <%= report.report_type %> : <%= report.description %> </li>
-            <strong>Address: </strong> <%= report.address %>
-        </ul>
-      <% end %>
+    <div id="instructionsContainer">
+
     </div>
   </div>
 </div>

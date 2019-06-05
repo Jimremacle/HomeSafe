@@ -135,9 +135,9 @@ const initMap = () => {
   addRouteShapeToMap(route);
   addManueversToMap(route);
 
-  // addWaypointsToPanel(route.waypoint);
-  // addManueversToPanel(route);
-  // addSummaryToPanel(route.summary);
+  addWaypointsToPanel(route.waypoint);
+  addManueversToPanel(route);
+  addSummaryToPanel(route.summary);
   }
 
   function onError(error) {
@@ -212,6 +212,92 @@ const initMap = () => {
   }
 
   //end of simple routing line **************************
+
+
+const routeInstructionsContainer = document.getElementById('instructionsContainer');
+
+  function addWaypointsToPanel(waypoints){
+
+
+
+    var nodeH3 = document.createElement('h3'),
+      waypointLabels = [],
+      i;
+
+
+     for (i = 0;  i < waypoints.length; i += 1) {
+      waypointLabels.push(waypoints[i].label)
+     }
+
+     nodeH3.textContent = waypointLabels.join(' - ');
+
+
+
+    routeInstructionsContainer.innerHTML = '';
+    routeInstructionsContainer.appendChild(nodeH3);
+  }
+
+  /**
+   * Creates a series of H.map.Marker points from the route and adds them to the map.
+   * @param {Object} route  A route as received from the H.service.RoutingService
+   */
+  function addSummaryToPanel(summary){
+    var summaryDiv = document.createElement('div'),
+     content = '';
+     content += '<b>Total distance</b>: ' + summary.distance / 1000 + 'km. <br/>';
+     content += '<b>Travel Time</b>: ' + summary.travelTime.toMMSS() + ' (in current traffic)';
+
+
+    summaryDiv.style.fontSize = 'small';
+    summaryDiv.style.marginLeft ='5%';
+    summaryDiv.style.marginRight ='5%';
+    summaryDiv.innerHTML = content;
+    routeInstructionsContainer.appendChild(summaryDiv);
+  }
+
+  /**
+   * Creates a series of H.map.Marker points from the route and adds them to the map.
+   * @param {Object} route  A route as received from the H.service.RoutingService
+   */
+  function addManueversToPanel(route){
+
+
+
+    var nodeOL = document.createElement('ol'),
+      i,
+      j;
+
+    nodeOL.style.fontSize = 'small';
+    nodeOL.style.marginLeft ='5%';
+    nodeOL.style.marginRight ='5%';
+    nodeOL.className = 'directions';
+
+       // Add a marker for each maneuver
+    for (i = 0;  i < route.leg.length; i += 1) {
+      for (j = 0;  j < route.leg[i].maneuver.length; j += 1) {
+        // Get the next maneuver.
+        var maneuver = route.leg[i].maneuver[j];
+
+        var li = document.createElement('li'),
+          spanArrow = document.createElement('span'),
+          spanInstruction = document.createElement('span');
+
+        spanArrow.className = 'arrow '  + maneuver.action;
+        spanInstruction.innerHTML = maneuver.instruction;
+        li.appendChild(spanArrow);
+        li.appendChild(spanInstruction);
+
+        nodeOL.appendChild(li);
+      }
+    }
+
+    routeInstructionsContainer.appendChild(nodeOL);
+  }
+
+
+  Number.prototype.toMMSS = function () {
+    return  Math.floor(this / 60)  +' minutes '+ (this % 60)  + ' seconds.';
+  }
 
 
 
