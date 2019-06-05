@@ -1,14 +1,20 @@
+require 'geokit'
+include Geokit::Geocoders
+
 class ReportsController < ApplicationController
   before_action :set_reports, only: [:show, :edit, :update, :destroy]
 
   def index
     @reports = policy_scope(Report)
+    start_search
+
     @markers = @reports.map do |report|
       {
         lat: report.latitude,
         lng: report.longitude
       }
     end
+
   end
 
   def show
@@ -40,4 +46,28 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:id])
     authorize @report
   end
+
+  def start_search
+    if params[:query].present?
+      @search = params[:query]
+      coords = MultiGeocoder.geocode(location)
+      @longitude = coords.lat
+      @latitude = coords.lng
+    else
+      @search = "Brussels"
+    end
+
+
+
+
+
+
+
+    # url = "https://geocoder.api.here.com/6.2/geocode.json?app_id=#{ENV['here_app_id']}&app_code=#{ENV['here_app_code']}&searchtext=#{@search}"
+    # @here = JSON.load(open(url))
+
+    # @latitude = @here.dig("Response", "View", 0, "Result", 0, "Location", "DisplayPosition", "Latitude" )
+    # @longitude = @here.dig("Response", "View", 0, "Result", 0, "Location", "DisplayPosition", "Longitude" )
+  end
+
 end
