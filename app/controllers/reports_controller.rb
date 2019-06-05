@@ -47,9 +47,20 @@ class ReportsController < ApplicationController
   def start_search
     if params[:query].present?
       @search = params[:query]
-      coords = MultiGeocoder.geocode(location)
-      @longitude = coords.lat
-      @latitude = coords.lng
+      # coords = MultiGeocoder.geocode(location)
+      # params[:query] contains the address after the search
+
+
+      # gem turns the address into coordinates
+      results = Geocoder.search("#{params[:query]}")
+      @geolocation_marker = [
+        results.first.coordinates[0].to_s,
+        results.first.coordinates[1].to_s
+        ].join(",")
+
+
+      # @latitude = results.first.coordinates[0]
+      # @longitude = results.first.coordinates[1]
     else
       @search = "Brussels"
     end

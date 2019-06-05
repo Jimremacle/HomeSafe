@@ -1,3 +1,5 @@
+import {addMarker} from "./init_geolocation";
+
 const initMap = () => {
 
   // Retrieve the target element for the map:
@@ -106,6 +108,8 @@ const initMap = () => {
   //   alert(e);
   // });
   addMarkersAndSetViewBounds(map)
+
+  addMarker(targetElement, platform, ui);
 }
 
 

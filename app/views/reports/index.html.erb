@@ -5,6 +5,7 @@
       style="width: 75%;
       height: calc(100vh - 64px);"
       data-markers="<%= @markers.to_json %>"
+      data-geo-marker="<%= @geolocation_marker %>"
       data-here-app-id="<%= ENV['here_app_id'] %>"
       data-here-app-code="<%= ENV['here_app_code'] %>"
     ></div>
@@ -30,8 +31,8 @@
     <%= submit_tag "Geolocate!" %>
   <% end %>
 
-  <p><%= @latitude %></p>
-  <p><%= @longitude %></p>
+  <p>Latitude: <%= @latitude %></p>
+  <p>Longitude: <%= @longitude %></p>
 
 
 
