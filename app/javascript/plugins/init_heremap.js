@@ -1,4 +1,5 @@
-import {addMarker} from "./init_geolocation";
+import { addMarker } from "./init_geolocation";
+import  { setUpClickListener } from "./init_clickposition";
 
 const initMap = () => {
 
@@ -120,8 +121,6 @@ const initMap = () => {
   // geocoder.geocode(geocodingParams, onResult, function(e) {
   //   alert(e);
   // });
-  addMarkersAndSetViewBounds(map)
-
 
   //Begining of simple routing line *********************
 
@@ -321,8 +320,11 @@ const routeInstructionsContainer = document.getElementById('instructionsContaine
 
 
  // addMarker(targetElement, platform, ui);
+  addMarkersAndSetViewBounds(map);
+  addMarker(targetElement, platform, ui);
+  setUpClickListener(map);
 
 }
 
 
-export {initMap}
+export { initMap };
