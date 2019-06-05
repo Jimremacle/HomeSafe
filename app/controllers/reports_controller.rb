@@ -11,6 +11,16 @@ class ReportsController < ApplicationController
     end
   end
 
+  def search
+    @reports = policy_scope(Report)
+    @markers = @reports.map do |report|
+      {
+        lat: report.latitude,
+        lng: report.longitude
+      }
+    end
+  end
+
   def show
   end
 
