@@ -1,5 +1,6 @@
 <div class="">
   <div class="d-flex">
+
     <div
       id="mapContainer"
       style="width: 75%;
@@ -11,27 +12,49 @@
     ></div>
     <div>
 
-      <div>
-        <div><% @reports.each do |report| %>
-          <ul>
-            <li> <%= report.report_type %> : <%= report.description %> </li>
-              <strong>Address: </strong> <%= report.address %>
-          </ul>
-        <% end %></div>
-
+      <div class="address-report">
         <div>
-          <div>
-            <%= form_tag reports_path, method: :get do %>
-              <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Brussels"
-              %>
-              <%= submit_tag "Geolocate!" %>
-            <% end %>
-          </div>
+
+          <form accept-charset="UTF-8" action="#" method="get">
+            <input name="utf8" type="hidden" value="&#x2713;" />
+            <div>
+              <label for="q">Start:</label>
+              <input id="q" name="q" type="text" placeholder="Enter your position" />
+            </div>
+            <div>
+              <label for="e">End:</label>
+              <input id="e" name="e" type="text" placeholder="Enter your destination" />
+            </div>
+            <input name="commit" type="submit" value="Go" />
+          </form>
+
+        </div>
+        <div class="btn btn-primary text-right">Report</div>
+      </div>
+      <div id="instructionsContainer">
+
+
+      </div>
+
+      <div>
+        <div>
+          <br>
+          <br>
+          <%= form_tag reports_path, method: :get do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Brussels"
+            %>
+            <%= submit_tag "Geolocate!" %>
+          <% end %>
+          <br>
+          <br>
+          <div class="btn btn-danger text-right">Distress message</div>
+
         </div>
       </div>
+
     </div>
   </div>
 </div>

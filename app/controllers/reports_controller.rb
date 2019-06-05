@@ -8,10 +8,10 @@ class ReportsController < ApplicationController
     @markers = @reports.map do |report|
       {
         lat: report.latitude,
-        lng: report.longitude
+        lng: report.longitude,
+        infoWindow: render_to_string(partial: 'infowindow', locals: { report: report })
       }
     end
-
   end
 
   def show
@@ -65,17 +65,10 @@ class ReportsController < ApplicationController
       @search = "Brussels"
     end
 
-
-
-
-
-
-
     # url = "https://geocoder.api.here.com/6.2/geocode.json?app_id=#{ENV['here_app_id']}&app_code=#{ENV['here_app_code']}&searchtext=#{@search}"
     # @here = JSON.load(open(url))
 
     # @latitude = @here.dig("Response", "View", 0, "Result", 0, "Location", "DisplayPosition", "Latitude" )
     # @longitude = @here.dig("Response", "View", 0, "Result", 0, "Location", "DisplayPosition", "Longitude" )
   end
-
 end
