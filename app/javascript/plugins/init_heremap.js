@@ -106,6 +106,118 @@ const initMap = () => {
   //   alert(e);
   // });
   addMarkersAndSetViewBounds(map)
+
+
+  //Begining of simple routing line *********************
+
+  function calculateRouteFromAtoB (platform) {
+    const router = platform.getRoutingService(),
+      routeRequestParams = {
+        mode: 'shortest;pedestrian',
+        representation: 'display',
+        waypoint0: '50.8464,4.3641', // Place de la Nation Bruxelles/park
+        waypoint1: '50.8167,4.4338',  // Avenue Roger Hainault Auderghem
+        routeattributes: 'waypoints,summary,shape,legs',
+        maneuverattributes: 'direction,action'
+      };
+
+
+    router.calculateRoute(
+      routeRequestParams,
+      onSuccess,
+      onError
+    );
+  }
+
+  function onSuccess(result) {
+  const route = result.response.route[0];
+
+  addRouteShapeToMap(route);
+  addManueversToMap(route);
+
+  // addWaypointsToPanel(route.waypoint);
+  // addManueversToPanel(route);
+  // addSummaryToPanel(route.summary);
+  }
+
+  function onError(error) {
+    alert('Ooops!');
+  }
+
+  /**
+   * Creates a H.map.Polyline from the shape of the route and adds it to the map.
+   * @param {Object} route A route as received from the H.service.RoutingService
+   */
+  function addRouteShapeToMap(route){
+    var lineString = new H.geo.LineString(),
+      routeShape = route.shape,
+      polyline;
+
+    routeShape.forEach(function(point) {
+      const parts = point.split(',');
+      lineString.pushLatLngAlt(parts[0], parts[1]);
+    });
+
+    polyline = new H.map.Polyline(lineString, {
+      style: {
+        lineWidth: 4,
+        strokeColor: 'rgba(0, 128, 255, 0.7)'
+      }
+    });
+    // Add the polyline to the map
+    map.addObject(polyline);
+    // And zoom to its bounding rectangle
+    map.setViewBounds(polyline.getBounds(), true);
+  }
+
+
+  /**
+   * Creates a series of H.map.Marker points from the route and adds them to the map.
+   * @param {Object} route  A route as received from the H.service.RoutingService
+   */
+  function addManueversToMap(route){
+    var svgMarkup = '<svg width="18" height="18" ' +
+      'xmlns="http://www.w3.org/2000/svg">' +
+      '<circle cx="8" cy="8" r="8" ' +
+        'fill="#1b468d" stroke="white" stroke-width="1"  />' +
+      '</svg>',
+      dotIcon = new H.map.Icon(svgMarkup, {anchor: {x:8, y:8}}),
+      group = new  H.map.Group(),
+      i,
+      j;
+
+    // Add a marker for each maneuver
+    for (i = 0;  i < route.leg.length; i += 1) {
+      for (j = 0;  j < route.leg[i].maneuver.length; j += 1) {
+        // Get the next maneuver.
+        const maneuver = route.leg[i].maneuver[j];
+        // Add a marker to the maneuvers group
+        const marker =  new H.map.Marker({
+          lat: maneuver.position.latitude,
+          lng: maneuver.position.longitude} ,
+          {icon: dotIcon});
+        marker.instruction = maneuver.instruction;
+        group.addObject(marker);
+      }
+    }
+
+    group.addEventListener('tap', function (evt) {
+      map.setCenter(evt.target.getPosition());
+      openBubble(
+         evt.target.getPosition(), evt.target.instruction);
+    }, false);
+
+    // Add the maneuvers group to the map
+    map.addObject(group);
+  }
+
+  //end of simple routing line **************************
+
+
+
+
+  calculateRouteFromAtoB (platform);
+
 }
 
 
