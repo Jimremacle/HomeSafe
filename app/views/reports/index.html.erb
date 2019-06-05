@@ -9,24 +9,25 @@
       data-here-app-code="<%= ENV['here_app_code'] %>"
     ></div>
     <div>
-      <div>
-        <% @reports.each do |report| %>
-           <ul>
-             <li> <%= report.report_type %> : <%= report.description %> </li>
-               <strong>Address: </strong> <%= report.address %>
-           </ul>
-         <% end %>
-      </div>
+      <div class="btn btn-primary text-right">Report</div>
       <div>
 
-        <form accept-charset="UTF-8" action="/search" method="get">
+        <form accept-charset="UTF-8" action="#" method="get">
           <input name="utf8" type="hidden" value="&#x2713;" />
-          <label for="q">Start:</label>
-          <input id="q" name="q" type="text" />
-          <label for="e">End:</label>
-          <input id="e" name="e" type="text" />
-          <input name="commit" type="submit" value="Search" />
+          <div>
+            <label for="q">Start:</label>
+            <input id="q" name="q" type="text" />
+          </div>
+          <div>
+            <label for="e">End:</label>
+            <input id="e" name="e" type="text" />
+          </div>
+          <input name="commit" type="submit" value="Go" />
         </form>
+
+      </div>
+
+      <div id="instructionsContainer">
 
       </div>
     </div>
