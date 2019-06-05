@@ -7,6 +7,14 @@ class ReportsController < ApplicationController
   def index
     @reports = policy_scope(Report)
     start_search
+
+    @markers = @reports.map do |report|
+      {
+        lat: report.latitude,
+        lng: report.longitude
+      }
+    end
+
   end
 
   def show

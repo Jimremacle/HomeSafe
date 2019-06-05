@@ -1,11 +1,22 @@
-<div class="container">
-  <h1>Welcome</h1>
-
-  <% @reports.each do |report| %>
-    <ul>
-      <li> <%= report.report_type %> : <%= report.description %> </li>
-    </ul>
-  <% end %>
+<div class="">
+  <div class="d-flex">
+    <div
+      id="mapContainer"
+      style="width: 75%;
+      height: calc(100vh - 64px);"
+      data-markers="<%= @markers.to_json %>"
+      data-here-app-id="<%= ENV['here_app_id'] %>"
+      data-here-app-code="<%= ENV['here_app_code'] %>"
+    ></div>
+    <div>
+      <% @reports.each do |report| %>
+        <ul>
+          <li> <%= report.report_type %> : <%= report.description %> </li>
+            <strong>Address: </strong> <%= report.address %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div>
