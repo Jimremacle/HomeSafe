@@ -1,6 +1,3 @@
-require 'geokit'
-include Geokit::Geocoders
-
 class ReportsController < ApplicationController
   before_action :set_reports, only: [:show, :edit, :update, :destroy]
 
