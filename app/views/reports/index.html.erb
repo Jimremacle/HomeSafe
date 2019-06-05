@@ -10,35 +10,30 @@
       data-here-app-code="<%= ENV['here_app_code'] %>"
     ></div>
     <div>
-      <% @reports.each do |report| %>
-        <ul>
-          <li> <%= report.report_type %> : <%= report.description %> </li>
-            <strong>Address: </strong> <%= report.address %>
-        </ul>
-      <% end %>
+
+      <div>
+        <div><% @reports.each do |report| %>
+          <ul>
+            <li> <%= report.report_type %> : <%= report.description %> </li>
+              <strong>Address: </strong> <%= report.address %>
+          </ul>
+        <% end %></div>
+
+        <div>
+          <div>
+            <%= form_tag reports_path, method: :get do %>
+              <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Brussels"
+              %>
+              <%= submit_tag "Geolocate!" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div>
 
-  <%= form_tag reports_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Brussels"
-    %>
-    <%= submit_tag "Geolocate!" %>
-  <% end %>
-
-  <p>Latitude: <%= @latitude %></p>
-  <p>Longitude: <%= @longitude %></p>
-
-
-
-
-</div>
-
-<%#
-@here.Response.View.Result.Location.DisplayPosition.Latitude
-%>
