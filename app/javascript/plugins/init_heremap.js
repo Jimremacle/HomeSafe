@@ -38,30 +38,41 @@ const initMap = () => {
 
     const reports = []
     const actualMarkers = JSON.parse(targetElement.dataset.markers);
+    let bubbles = [];
 
     group.addEventListener('tap', function (evt) {
-      // event target is the marker itself, group is a parent event target
-      // for all objects that it contains
-      var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
-        // read custom data
-        content: evt.target.getData()
-      });
-      // show info bubble
-      console.log(evt.target.getData())
-      ui.addBubble(bubble);
+    // event target is the marker itself, group is a parent event target
+    // for all objects that it contains
+
+    bubbles.forEach((bubble) => {
+      ui.removeBubble(bubble)
+    });
+
+    var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
+      // read custom data
+      content: evt.target.getData()
+    });
+    bubbles.push(bubble);
+    // show info bubble
+    // console.log(evt.target.getData())
+    ui.addBubble(bubble);
     }, false);
 
     actualMarkers.forEach((marker) => {
       const markerObject = new H.map.Marker({lat:marker.lat, lng:marker.lng})
-      markerObject.setData('div');
+      // markerObject.setData('div');
+      markerObject.setData(marker.infoWindow);
       reports.push(markerObject);
-      // marker.setData(marker.infoWindow);
     });
 
     group.addObjects(reports);
     // get geo bounding box for the group and set it to the map
     map.setViewBounds(group.getBounds());
-  }
+
+
+  };
+
+
 
   // ------------------------- Geocoding starts here
   // Create the parameters for the geocoding request:
