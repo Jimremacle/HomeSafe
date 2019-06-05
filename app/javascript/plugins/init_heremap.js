@@ -12,6 +12,7 @@ const initMap = () => {
   const platform = new H.service.Platform({
     'app_id': appId,
     'app_code': appCode,
+    // 'ml'=eng,
     useHTTPS: true
   });
 
@@ -28,7 +29,8 @@ const initMap = () => {
     defaultLayers.normal.map,{
     center: {lat:50, lng:5},
     zoom: 4,
-    pixelRatio: pixelRatio
+    pixelRatio: pixelRatio,
+    lg: 'ENG'
     });
 
   // Lets add markers and have the map focus on them
