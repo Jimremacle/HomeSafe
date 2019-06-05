@@ -10,24 +10,25 @@
       data-here-app-code="<%= ENV['here_app_code'] %>"
     ></div>
     <div>
-      <div class="btn btn-primary text-right">Report</div>
-      <div>
+      <div class="address-report">
+        <div>
 
-        <form accept-charset="UTF-8" action="#" method="get">
-          <input name="utf8" type="hidden" value="&#x2713;" />
-          <div>
-            <label for="q">Start:</label>
-            <input id="q" name="q" type="text" />
-          </div>
-          <div>
-            <label for="e">End:</label>
-            <input id="e" name="e" type="text" />
-          </div>
-          <input name="commit" type="submit" value="Go" />
-        </form>
+          <form accept-charset="UTF-8" action="#" method="get">
+            <input name="utf8" type="hidden" value="&#x2713;" />
+            <div>
+              <label for="q">Start:</label>
+              <input id="q" name="q" type="text" placeholder="Enter your position" />
+            </div>
+            <div>
+              <label for="e">End:</label>
+              <input id="e" name="e" type="text" placeholder="Enter your destination" />
+            </div>
+            <input name="commit" type="submit" value="Go" />
+          </form>
 
+        </div>
+        <div class="btn btn-primary text-right">Report</div>
       </div>
-
       <div id="instructionsContainer">
 
       </div>
