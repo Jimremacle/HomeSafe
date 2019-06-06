@@ -1,7 +1,10 @@
 require 'faker'
 
 Report.delete_all
+EmergencyContact.delete_all
 User.delete_all
+
+user = User.create!(email: "jeremy.remacle@gmail.com", password: "blabla")
 
 5.times do
   ename = Faker::Internet.email
@@ -10,9 +13,8 @@ User.delete_all
   photo = Faker::Avatar.image("my-own-slug", "50x50")
   usercreated = User.create(email: ename, password: epass, frequent_address: address, avatar: photo)
   puts "Done Seeding..."
-  @userId = usercreated.id
 end
-
+users = User.all
 reports_attribute = [
   {
     report_type: "Verbal",
@@ -21,7 +23,7 @@ reports_attribute = [
     latitude:50.8454,
     occurence_timedate: "2019/06/05 20:50:00",
     address: "Cantersteen 10 Bruxelles",
-    user_id: (@userId - 4)
+    user: users.sample
   },
   {
     report_type: "Physical",
@@ -30,7 +32,7 @@ reports_attribute = [
     latitude:50.8464,
     occurence_timedate: "2019-06-05 21:50:00",
     address: "Place de la Nation Bruxelles",
-    user_id: (@userId - 4)
+    user: users.sample
   },
   {
     report_type: "Physical",
@@ -39,7 +41,7 @@ reports_attribute = [
     latitude:50.8167,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Avenue Roger Hainault Auderghem",
-    user_id: (@userId - 3)
+    user: users.sample
   },
   {
     report_type: "Verbal",
@@ -48,7 +50,7 @@ reports_attribute = [
     latitude:50.8667,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Avenue des Loisirs 11 Evere",
-    user_id: (@userId - 3)
+    user: users.sample
   },
   {
     report_type: "Physical",
@@ -57,7 +59,7 @@ reports_attribute = [
     latitude:50.844805,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Stalingrad Bruxelles",
-    user_id: (@userId - 2)
+    user: users.sample
   },
   {
     report_type: "Feeling",
@@ -66,7 +68,7 @@ reports_attribute = [
     latitude:50.840470,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Marolles Bruxelles",
-    user_id: (@userId - 2)
+    user: users.sample
   },
   {
     report_type: "Feeling",
@@ -75,7 +77,7 @@ reports_attribute = [
     latitude:50.847377,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Rue Van Artevelde 55 Bruxelles",
-    user_id: (@userId - 1)
+    user: users.sample
   },
   {
     report_type: "Verbal",
@@ -84,7 +86,7 @@ reports_attribute = [
     latitude:50.852751,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Rue Vander Elst 17 Bruxelles",
-    user_id: (@userId - 1)
+    user: users.sample
   },
   {
     report_type: "Physical",
@@ -93,7 +95,7 @@ reports_attribute = [
     latitude:50.858768,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Place de la Reine Bruxelles",
-    user_id: @userId
+    user: users.sample
   },
   {
     report_type: "Feeling",
@@ -102,10 +104,22 @@ reports_attribute = [
     latitude:50.860309,
     occurence_timedate: "2019-06-06 21:50:00",
     address: "Rue de la Fraternité Schaerbeek",
-    user_id: @userId
+    user: users.sample
   }
 ]
 
 Report.create!(reports_attribute)
+puts "Done Seeding..."
+
+emergency_contacts_attribute = [
+  {
+    name: "Chantale",
+    number:"+32468040894",
+    message: "Viens m'aider Krishna, t'auras une récompense!",
+    user: user
+  }
+]
+
+EmergencyContact.create!(emergency_contacts_attribute)
 puts "Done Seeding..."
 

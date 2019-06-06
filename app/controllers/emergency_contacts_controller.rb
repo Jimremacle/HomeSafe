@@ -1,5 +1,5 @@
 class EmergencyContactsController < ApplicationController
   def create
-    EmergencyMessageService.new.call
+    EmergencyMessageService.new(current_user).call
   end
 end
