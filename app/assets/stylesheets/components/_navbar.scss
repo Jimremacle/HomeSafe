@@ -5,8 +5,12 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  height: 50px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#logo {
+  width: 60px;
+  left: 40px;
+  top: 4px;
+  position: absolute;
 }

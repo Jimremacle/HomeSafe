@@ -35,4 +35,4 @@ function addMarker(target, platform, ui) {
       function(e) { alert(e); });
 }
 
-export {addMarker}
+export { addMarker }

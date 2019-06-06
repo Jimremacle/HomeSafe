@@ -29,32 +29,10 @@
           </form>
 
         </div>
+        <%= link_to new_report_path do %>
         <div class="btn btn-primary text-right">Report</div>
+        <% end %>
       </div>
-      <div id="instructionsContainer">
-
-
-      </div>
-
-      <div>
-        <div>
-          <br>
-          <br>
-          <%= form_tag reports_path, method: :get do %>
-            <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Brussels"
-            %>
-            <%= submit_tag "Geolocate!" %>
-          <% end %>
-          <br>
-          <br>
-          <div class="btn btn-danger text-right">Distress message</div>
-
-        </div>
-      </div>
-
     </div>
   </div>
 </div>

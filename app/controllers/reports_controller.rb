@@ -20,18 +20,21 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
     authorize @report
+    @incidents = ["go home", "fill the mill", "Something else"]
   end
 
   def edit
   end
 
   def create
-    @report = report.new(report_params)
+    @report = Report.new(report_params)
+    # making link for nested element; select user in @report and setting
+    # equal with the current user
     @report.user = current_user
     authorize @report
 
     if @report.save
-      redirect_to @report, notice: 'Report created successfully!'
+      redirect_to root_path, notice: 'Report created successfully!'
     else
       render :new
     end
@@ -42,6 +45,10 @@ class ReportsController < ApplicationController
   def set_reports
     @report = Report.find(params[:id])
     authorize @report
+  end
+
+  def report_params
+    params.require(:report).permit(:address, :description, :report_type, :occurence_timedate)
   end
 
   def start_search

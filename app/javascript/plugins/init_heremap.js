@@ -47,19 +47,19 @@ const initMap = () => {
     // event target is the marker itself, group is a parent event target
     // for all objects that it contains
 
-    bubbles.forEach((bubble) => {
-      ui.removeBubble(bubble)
-    });
+      bubbles.forEach((bubble) => {
+        ui.removeBubble(bubble)
+      });
 
-    var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
-      // read custom data
-      content: evt.target.getData()
-    });
-    bubbles.push(bubble);
-    // show info bubble
-    // console.log(evt.target.getData())
-    ui.addBubble(bubble);
-    }, false);
+      var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
+        // read custom data
+        content: evt.target.getData()
+      });
+      bubbles.push(bubble);
+      // show info bubble
+      // console.log(evt.target.getData())
+      ui.addBubble(bubble);
+     }, false);
 
     actualMarkers.forEach((marker) => {
       const markerObject = new H.map.Marker({lat:marker.lat, lng:marker.lng})
@@ -322,7 +322,7 @@ const routeInstructionsContainer = document.getElementById('instructionsContaine
  // addMarker(targetElement, platform, ui);
   addMarkersAndSetViewBounds(map);
   addMarker(targetElement, platform, ui);
-  setUpClickListener(map);
+  setUpClickListener(map, ui);
 
 }
 
