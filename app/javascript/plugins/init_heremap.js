@@ -123,14 +123,16 @@ const initMap = () => {
   // });
 
   //Begining of simple routing line *********************
-
+  const coordStart = targetElement.dataset.coordinatesStart;
+  const coordEnd = targetElement.dataset.coordinatesEnd;
+  console.log(coordStart)
   function calculateRouteFromAtoB (platform) {
     const router = platform.getRoutingService(),
       routeRequestParams = {
         mode: 'shortest;pedestrian',
         representation: 'display',
-        waypoint0: '50.8464,4.3641', // Place de la Nation Bruxelles/park
-        waypoint1: '50.8167,4.4338',  // Avenue Roger Hainault Auderghem
+        waypoint0: coordStart, // Place de la Nation Bruxelles/park
+        waypoint1: coordEnd,  // Avenue Roger Hainault Auderghem
         routeattributes: 'waypoints,summary,shape,legs',
         maneuverattributes: 'direction,action'
       };
