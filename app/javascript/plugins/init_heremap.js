@@ -7,7 +7,6 @@ const initMap = () => {
   const targetElement = document.getElementById('mapContainer');
   const appId = targetElement.dataset.hereAppId
   const appCode = targetElement.dataset.hereAppCode
-  console.log
 
   // Instantiate a map and platform object:
   const platform = new H.service.Platform({
@@ -125,16 +124,17 @@ const initMap = () => {
   //Begining of simple routing line *********************
   const coordStart = targetElement.dataset.coordinatesStart;
   const coordEnd = targetElement.dataset.coordinatesEnd;
-  console.log(coordStart)
+
   function calculateRouteFromAtoB (platform) {
     const router = platform.getRoutingService(),
       routeRequestParams = {
         mode: 'shortest;pedestrian',
         representation: 'display',
-        waypoint0: coordStart, // Place de la Nation Bruxelles/park
-        waypoint1: coordEnd,  // Avenue Roger Hainault Auderghem
+        waypoint0: coordStart,
+        waypoint1: coordEnd,
         routeattributes: 'waypoints,summary,shape,legs',
-        maneuverattributes: 'direction,action'
+        maneuverattributes: 'direction,action',
+        avoidareas: '50.84845,4.36429;50.83032,4.37305'
       };
 
 
