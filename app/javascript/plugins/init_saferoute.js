@@ -1,11 +1,4 @@
-import { addMarker } from "./init_geolocation";
-import  { setUpClickListener } from "./init_clickposition";
-// import { calculateSafeRouteFromAtoB } from "./init_saferoute";
-
-const initMap = () => {
-
-  // Retrieve the target element for the map:
-  const targetElement = document.getElementById('mapContainer');
+const targetElement = document.getElementById('mapContainer');
   const appId = targetElement.dataset.hereAppId
   const appCode = targetElement.dataset.hereAppCode
 
@@ -123,7 +116,7 @@ const initMap = () => {
   //   alert(e);
   // });
 
-  //Begining of routing *********************
+  //Begining of simple routing line *********************
   const coordStart = targetElement.dataset.coordinatesStart;
   const coordEnd = targetElement.dataset.coordinatesEnd;
   let str = "";
@@ -132,8 +125,10 @@ const initMap = () => {
     str += (marker.lat + 0.001) + ',' + (marker.lng - 0.001) + ";" + (marker.lat - 0.001) + ',' + (marker.lng + 0.001) + "!";
   });
   const avoid = str.substring(0, str.length - 1);
+  console.log(avoid);
 
-  function calculateRouteFromAtoB (platform) {
+
+  function calculateSafeRouteFromAtoB (platform) {
     const router = platform.getRoutingService(),
       routeRequestParams = {
         mode: 'shortest;pedestrian',
@@ -141,30 +136,13 @@ const initMap = () => {
         waypoint0: coordStart,
         waypoint1: coordEnd,
         routeattributes: 'waypoints,summary,shape,legs',
-        maneuverattributes: 'direction,action'
-        // avoidareas: avoid
-      },
-
-            routeRequestParams2 = {
-        mode: 'shortest;pedestrian',
-        representation: 'display',
-        waypoint0: coordStart,
-        waypoint1: coordEnd,
-        routeattributes: 'waypoints,summary,shape,legs',
         maneuverattributes: 'direction,action',
-        avoidareas: avoid,
+        avoidareas: avoid
       };
 
 
     router.calculateRoute(
       routeRequestParams,
-      onSuccess,
-      onError
-    );
-
-
-    router.calculateRoute(
-      routeRequestParams2,
       onSuccess,
       onError
     );
@@ -340,18 +318,4 @@ const routeInstructionsContainer = document.getElementById('instructionsContaine
     return  Math.floor(this / 60)  +' minutes '+ (this % 60)  + ' seconds.';
   }
 
-
-
-
-  calculateRouteFromAtoB (platform);
-  // calculateSafeRouteFromAtoB (platform);
-
- // addMarker(targetElement, platform, ui);
-  addMarkersAndSetViewBounds(map);
-  addMarker(targetElement, platform, ui);
-  setUpClickListener(map);
-
-}
-
-
-export { initMap };
+  export { calculateSafeRouteFromAtoB }

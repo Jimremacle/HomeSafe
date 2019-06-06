@@ -1,7 +1,7 @@
 function addMarker(target, platform, ui) {
   const geoMarker = target.dataset.geoMarker;
-  // Create the parameters for the reverse geocoding request:
-  var reverseGeocodingParameters = {
+  if (geoMarker){
+     var reverseGeocodingParameters = {
       // target already in the parent function
       // const targetElement = document.getElementById('mapContainer');
 
@@ -13,7 +13,7 @@ function addMarker(target, platform, ui) {
 
     // Define a callback function to process the response:
     function onSuccess(result) {
-      var location = result.Response.View[0].Result[0];
+        var location = result.Response.View[0].Result[0];
 
       // Create an InfoBubble at the returned location with
       // the address as its contents:
@@ -33,6 +33,9 @@ function addMarker(target, platform, ui) {
       reverseGeocodingParameters,
       onSuccess,
       function(e) { alert(e); });
+  }
+  // Create the parameters for the reverse geocoding request:
+
 }
 
 export {addMarker}
