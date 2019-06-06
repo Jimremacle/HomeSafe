@@ -33,13 +33,14 @@ const initMap = () => {
     lg: 'ENG'
     });
 
+
+  const actualMarkers = JSON.parse(targetElement.dataset.markers); //moved out of scope for areas to avoid
   // Lets add markers and have the map focus on them
   function addMarkersAndSetViewBounds() {
     const group = new H.map.Group();
     map.addObject(group);
 
     const reports = []
-    const actualMarkers = JSON.parse(targetElement.dataset.markers);
     let bubbles = [];
 
     group.addEventListener('tap', function (evt) {
@@ -124,6 +125,14 @@ const initMap = () => {
   //Begining of simple routing line *********************
   const coordStart = targetElement.dataset.coordinatesStart;
   const coordEnd = targetElement.dataset.coordinatesEnd;
+  let str = "";
+
+  actualMarkers.forEach((marker) => {
+    str += (marker.lat + 0.001) + ',' + (marker.lng - 0.001) + ";" + (marker.lat - 0.001) + ',' + (marker.lng + 0.001) + "!";
+  });
+  const avoid = str.substring(0, str.length - 1);
+  console.log(avoid);
+
 
   function calculateRouteFromAtoB (platform) {
     const router = platform.getRoutingService(),
@@ -134,7 +143,7 @@ const initMap = () => {
         waypoint1: coordEnd,
         routeattributes: 'waypoints,summary,shape,legs',
         maneuverattributes: 'direction,action',
-        avoidareas: '50.84845,4.36429;50.83032,4.37305'
+        avoidareas: avoid
       };
 
 
@@ -146,14 +155,14 @@ const initMap = () => {
   }
 
   function onSuccess(result) {
-  const route = result.response.route[0];
+    const route = result.response.route[0];
 
-  addRouteShapeToMap(route);
-  addManueversToMap(route);
+    addRouteShapeToMap(route);
+    addManueversToMap(route);
 
-  addWaypointsToPanel(route.waypoint);
-  addManueversToPanel(route);
-  addSummaryToPanel(route.summary);
+    addWaypointsToPanel(route.waypoint);
+    addManueversToPanel(route);
+    addSummaryToPanel(route.summary);
   }
 
   function onError(error) {
