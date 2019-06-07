@@ -31,19 +31,26 @@
           <%= submit_tag "Go!" %>
         <% end %>
 
+        <div class="btn btn-primary" id="safest_button">Fafest</div>
+        <div class="btn btn-success" id="fastest_button">Safest</div>
         </div>
-        <%= link_to new_report_path do %>
-        <div class="btn btn-primary text-right">Report</div>
-        <% end %>
       </div>
       <div id="instructionsContainer">
 
       </div>
       <div>
-        <div>
-          <br>
-          <br>
-          <%= link_to "Distress Message", emergency_contacts_path, method: :post, class:"btn btn-danger"  %>
+        <br>
+        <br>
+        <div class="d-flex justify-content-around">
+
+          <div>
+            <%= link_to "Distress Message", emergency_contacts_path, method: :post, class:"btn btn-danger"  %>
+          </div>
+
+          <%= link_to new_report_path do %>
+          <div class="btn btn-danger text-right">Report</div>
+          <% end %>
+
         </div>
       </div>
     </div>
