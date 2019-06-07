@@ -1,0 +1,22 @@
+<h3>Report an incident</h3>
+<p>Please describe describe the incident</p>
+<p>Where</p>
+
+
+
+<div>
+  <%= simple_form_for @report do |f| %>
+
+    <%= f.input :address, placeholder: "Brussels" %>
+
+
+    <%= f.input :report_type, collection: @incidents %>
+
+    <%= f.input :description %>
+
+    <%# f.input :occurence_timedate %>
+    <%= f.input :occurence_timedate, as: :string, required: false,  inline: true, input_html: {class: "datepicker"} %>
+  <%= f.button :submit %>
+  <% end %>
+</div>
+

@@ -4,25 +4,32 @@
  * of the location pressed.
  * @param  {H.Map} map      A HERE Map instance within the application
  */
-function setUpClickListener(map) {
+function setUpClickListener(map, ui) {
   // Attach an event listener to map display
   // obtain the coordinates and display in an alert box.
 
-  let oldMarker = 0;
+
+  let oldBubble = 0;
 
   map.addEventListener('tap', function (evt) {
 
     var coord = map.screenToGeo(evt.currentPointer.viewportX,
             evt.currentPointer.viewportY);
-    console.log(oldMarker);
-    if (oldMarker !== 0) {
-      map.removeObject(oldMarker)
-      };
-    const marker = new H.map.Marker(coord);
-    console.log(marker);
-    oldMarker = marker;
+    //console.log(oldMarker);
 
-     map.addObject(marker);
+    if (oldBubble !== 0) {
+       ui.removeBubble(oldBubble)
+      };
+
+    const bubble = new H.ui.InfoBubble(coord, { content: `<div> <a href="/reports/new?coords=${coord}">Report an incident</a> </div>` })
+    ui.addBubble(bubble)
+
+    oldBubble = bubble;
+    //console.log(bubble)
+
+
+    // map.addObject(marker);
+
 
 
 
