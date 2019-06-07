@@ -7,3 +7,4 @@ import "../plugins/flatpickr"
 
 initAutocomplete();
 initMap();
+

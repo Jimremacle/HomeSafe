@@ -174,24 +174,39 @@ const initMap = () => {
 
   function onFastSuccess(result) {
     const route = result.response.route[0];
+    const button = document.getElementById("safest_button")
 
     addRouteShapeToMap(route, 'rgba(0, 128, 255, 0.7)');
     addManueversToMap(route, "#1b468d");
 
-    addWaypointsToPanel(route.waypoint);
-    addManueversToPanel(route);
-    addSummaryToPanel(route.summary);
+    button.addEventListener("click", () => {
+
+      addRouteShapeToMap(route, 'rgba(0, 128, 255, 0.7)');
+      addManueversToMap(route, "#1b468d");
+
+      addWaypointsToPanel(route.waypoint);
+      addManueversToPanel(route);
+      addSummaryToPanel(route.summary);
+
+    });
+
   }
 
   function onSafeSuccess(result) {
     const route = result.response.route[0];
+    const fastButton = document.getElementById('fastest_button')
 
     addRouteShapeToMap(route, 'rgba(71, 196, 90, 0.7)');
     addManueversToMap(route, "#1ab631");
 
-    addWaypointsToPanel(route.waypoint);
-    addManueversToPanel(route);
-    addSummaryToPanel(route.summary);
+    fastButton.addEventListener("click", () => {
+      addRouteShapeToMap(route, 'rgba(71, 196, 90, 0.7)');
+      addManueversToMap(route, "#1ab631");
+      addWaypointsToPanel(route.waypoint);
+      addManueversToPanel(route);
+      addSummaryToPanel(route.summary);
+
+    });
   }
 
   function onError(error) {
