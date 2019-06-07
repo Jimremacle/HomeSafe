@@ -1,5 +1,4 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -21,6 +20,16 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :frequent_address, :label => "Home address",
+                hint: "Write your domicile address",
+                required: false %>
+    <%= f.simple_fields_for :emergency_contact do |s| %>
+      <%= s.input :name, :label => "Emergency Contact Name", input_html: { placeholder: 'Input name here' } %>
+      <%= s.input :number, :label => "Emergency Contact Number", input_html: { placeholder: 'Input number here' } %>
+      <%= s.input :message, :label => "Message to send", input_html: { placeholder: 'Input message here' } %>
+
+    <% end %>
+
   </div>
 
   <div class="form-actions">
