@@ -18,4 +18,9 @@ const initAutocomplete = () => {
 
 };
 
+const addressUpdate = document.getElementById('user_frequent_address');
+if (addressUpdate) {
+  places({ container: addressUpdate });
+};
+
 export { initAutocomplete };
