@@ -21,7 +21,16 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
     authorize @report
-    @incidents = ["go home", "fill the mill", "Something else"]
+    @incidents = ["Feeling", "Verbal", "Physical"]
+    if params[:coords] != nil
+      coordinates = params[:coords].to_s.slice!(7, 34)
+      coord_array = coordinates.split(" ")
+      @longitude = coord_array[0].to_f
+      @latitude =  coord_array[1].to_f
+      @address = Geocoder.search([@latitude, @longitude]).first.address
+      @report.address = @address
+    end
+
   end
 
   def edit
