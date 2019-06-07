@@ -10,15 +10,17 @@
       <div class="d-flex">
         <p class="profile-titles">Home address:&nbsp; </p> <p class="profile-info"> <%= current_user.frequent_address %></p>
       </div>
-      <div class="d-flex">
+      <% if current_user.emergency_contacts.any? %>
+        <div class="d-flex">
         <p class="profile-titles">Emergency Contact Name:&nbsp; </p> <p class="profile-info"> <%= current_user.emergency_contacts.last.name %></p>
-      </div>
+        </div>
       <div class="d-flex">
         <p class="profile-titles">Emergency Contact Number:&nbsp; </p> <p class="profile-info"> <%= current_user.emergency_contacts.last.number %></p>
       </div>
       <div class="d-flex">
         <p class="profile-titles">Emergency Contact Message:&nbsp; </p> <p class="profile-info"> <%= current_user.emergency_contacts.last.message %></p>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
