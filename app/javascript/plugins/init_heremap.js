@@ -61,7 +61,8 @@ const initMap = () => {
       bubbles.push(bubble);
       // show info bubble
       // console.log(evt.target.getData())
-      ui.addBubble(bubble);
+      setTimeout(function(){ ui.addBubble(bubble); }, 10);
+
      }, false);
 
     actualMarkers.forEach((marker) => {
@@ -373,11 +374,12 @@ const routeInstructionsContainer = document.getElementById('instructionsContaine
 
   calculateRouteFromAtoB (platform);
   // calculateSafeRouteFromAtoB (platform);
-
+  setUpClickListener(map, ui);
  // addMarker(targetElement, platform, ui);
   addMarkersAndSetViewBounds(map);
   addMarker(targetElement, platform, ui);
-  setUpClickListener(map, ui);
+
+  switchMapLanguage(map, platform);
 
 }
 

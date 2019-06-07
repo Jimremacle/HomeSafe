@@ -6,6 +6,13 @@ User.delete_all
 
 user = User.create!(email: "jeremy.remacle@gmail.com", password: "blabla")
 
+  ename = "user@mail.be"
+  epass = 123456
+  address = Faker::Address.street_address
+  photo = Faker::Avatar.image("my-own-slug", "50x50")
+  usercreated = User.create(email: ename, password: epass, frequent_address: address, avatar: photo)
+  puts "Created the standard user: user@mail.be, PW: 123456 "
+
 5.times do
   ename = Faker::Internet.email
   epass = Faker::Internet.password

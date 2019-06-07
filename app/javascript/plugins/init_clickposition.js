@@ -21,7 +21,8 @@ function setUpClickListener(map, ui) {
        ui.removeBubble(oldBubble)
       };
 
-    const bubble = new H.ui.InfoBubble(coord, { content: `<div> <a href="/reports/new?coords=${coord}">Report an incident</a> </div>` })
+    const bubble = new H.ui.InfoBubble(coord, { content: `<div style="z-index: 0; position: relativ;"> <a href="/reports/new?coords=${coord}">Report an incident</a> </div>` })
+
     ui.addBubble(bubble)
 
     oldBubble = bubble;
