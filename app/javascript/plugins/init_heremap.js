@@ -50,6 +50,8 @@ const initMap = () => {
     // event target is the marker itself, group is a parent event target
     // for all objects that it contains
 
+    evt.stopPropagation();
+
       bubbles.forEach((bubble) => {
         ui.removeBubble(bubble)
       });
