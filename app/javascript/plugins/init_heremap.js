@@ -22,7 +22,7 @@ const initMap = () => {
   const pixelRatio = window.devicePixelRatio || 1;
   const defaultLayers = platform.createDefaultLayers({
     tileSize: pixelRatio === 1 ? 256 : 512,
-    ppi: pixelRatio === 1 ? undefined : 320
+    ppi: pixelRatio === 1 ? undefined : 320,
   });
 
   // Instantiate the map:
@@ -60,6 +60,7 @@ const initMap = () => {
         // read custom data
         content: evt.target.getData()
       });
+
       bubbles.push(bubble);
 
       // show info bubble
@@ -73,7 +74,6 @@ const initMap = () => {
     const iconFeeling = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_2_ggypsx.png');
 
     actualMarkers.forEach((marker) => {
-      console.log(marker)
       if (marker.type == "Physical") {
         var markerObject = new H.map.Marker({lat:marker.lat, lng:marker.lng}, {icon: iconPhysical})
       } else if(marker.type == "Verbal") {
