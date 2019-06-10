@@ -1,0 +1,7 @@
+.banner {
+  background-image: asset-url("girl-in-the-street.jpg");
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.01));
+  height: calc(100vh - 64px);
+  // background-repeat: no-repeat;
+  background-size: cover;
+}
