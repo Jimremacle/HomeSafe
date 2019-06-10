@@ -10,14 +10,17 @@
     <%= f.input :address, placeholder: @address %>
     <%# raise %>
 
-    <%= f.input :report_type, collection: @incidents %>
+    <%= f.input :report_type, collection: Report::INCIDENTS %>
 
     <%= f.input :description %>
 
-    <%  %>
-    <%= f.input :occurence_timedate %>
-    <%# f.input :occurence_timedate, as: :string, required: false,  inline: true, input_html: {class: "datepicker"} %>
-  <%= f.button :submit %>
+    <%# f.input :occurence_timedate %>
+
+    <%= f.input :occurence_timedate, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+
+
+
+    <%= f.button :submit %>
   <% end %>
 </div>
 

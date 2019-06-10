@@ -13,3 +13,20 @@
 #e {
   margin-left: 7px;
 }
+
+#cm-popup {
+  display:none;
+  box-shadow: 0 0 10px #888888;
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  width:50%;
+  height:200px;
+}
+
+ .cm-btn {
+  border:none;
+  background:#405080;
+  color:white;
+  border-radius:2px;
+}

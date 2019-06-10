@@ -71,6 +71,8 @@ GEM
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
+    flatpickr_rails (1.1.0)
+      railties (>= 3.0)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
     geocoder (1.5.1)
@@ -214,6 +216,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+  flatpickr_rails
   font-awesome-sass (~> 5.6.1)
   geocoder
   geokit-rails
