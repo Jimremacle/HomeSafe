@@ -1,7 +1,46 @@
 .banner {
   background-image: asset-url("girl-in-the-street.jpg");
-  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.01));
-  height: calc(100vh - 64px);
-  // background-repeat: no-repeat;
+  height: calc(100vh - 56px);
   background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  padding: 300px 0px 145px 0px;
+  position: relative;
+  min-width: 414px;
+}
+
+.banner h1 {
+  color: white;
+  font-size: 44px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  font-weight: bolder;
+}
+
+.banner h3 {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  font-size: 30px;
+  opacity: .8;
+}
+
+.fab {
+  border-style: solid;
+  border-radius: 40px;
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  // line-height: 66px;
+  border-width: 2px;
+  margin: 26px 26px 0px;
+  padding: 22px 22px;
+  font-weight: bolder;
+  font-size: 17px;
+}
+
+.fab:hover {
+  background-color: white;
+  color: #61892F;
+}
+
+.text {
+  padding-left: 20px;
 }

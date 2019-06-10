@@ -1,4 +1,22 @@
-<div class="banner"></div>
+<div class="banner">
+  <div class="container">
+    <div class="row w-100">
+      <div class="text col-xs-12 col-sm-6">
+        <h1>naviSafe</h1>
+        <h3>Short cut to safety</h3>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="app align-middle d-flex justify-content-around">
+          <span><i class="fab fa-android">Android</i></span>
+          <span><i class="fab fa-apple"> Apple</i></span>
+        </div>
+        <a data-scroll href="#full">
+          <div class="arrow bounce"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="" id="full">
   <div class="row">
@@ -6,7 +24,7 @@
     <div
       id="mapContainer"
       style="width: 75%;
-      height: calc(100vh - 64px);"
+      height: 100vh;"
       data-markers="<%= @markers.to_json %>"
       data-geo-marker="<%= @geolocation_marker %>"
       data-coordinates-start="<%= @coordinates_start %>"
