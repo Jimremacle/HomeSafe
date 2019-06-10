@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'geocoder'
 gem 'geokit-rails'
+gem 'compass-rails'
 gem 'twilio-ruby'
 
 group :development do

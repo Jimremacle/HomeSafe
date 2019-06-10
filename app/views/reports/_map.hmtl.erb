@@ -1,0 +1,12 @@
+    <div
+      id="mapContainer"
+      style="width: 75%;
+      height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-geo-marker="<%= @geolocation_marker %>"
+      data-coordinates-start="<%= @coordinates_start %>"
+      data-coordinates-end="<%= @coordinates_end %>"
+      data-here-app-id="<%= ENV['here_app_id'] %>"
+      data-here-app-code="<%= ENV['here_app_code'] %>"
+      class="col-12 col-lg-8"
+    ></div>

@@ -101,7 +101,10 @@ class ReportsController < ApplicationController
         results_end.first.coordinates[0].to_s,
         results_end.first.coordinates[1].to_s
         ].join(",")
-
+      # respond_to do |format|
+      #   format.html { redirect_to reports_path }
+      #   format.js
+      # end
       # @latitude = results.first.coordinates[0]
       # @longitude = results.first.coordinates[1]
     else
