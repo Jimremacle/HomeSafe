@@ -1,6 +1,5 @@
 <div class="pop-up">
-  <%= report.report_type %> <br>
+  <p id="pop-up-title"> <%= report.report_type %></p> <br>
   <h3 id="pop-up-text"><%= report.description %> <br>
-  <%= report.address %> <br>
-  <%= report.occurence_timedate %></h3>
+  <%= report.occurence_timedate.strftime('%Y-%m-%d Reported at: %H:%M') %></h3>
 </div>
