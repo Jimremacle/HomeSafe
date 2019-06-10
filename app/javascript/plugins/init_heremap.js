@@ -65,12 +65,7 @@ const initMap = () => {
 
      }, false);
 
-
-    // var svgMarkup = '<svg width="24" height="24" ' +
-    //   'xmlns="http://www.w3.org/2000/svg">' +
-    //   '<rect stroke="white" fill="#1b468d" x="1" y="1" width="22" ' +
-    //   'height="22" /></svg>';
-
+    //change marker colour based on condition
     const iconPhysical = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_gbpv0n.png');
     const iconVerbal = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560163227/icons8-marker-32_3_tvjayi.png');
     const iconFeeling = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_2_ggypsx.png');
