@@ -1,16 +1,49 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #222629;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  opacity: 1;
+  height: 74px;
+  a {
+    text-decoration: none;
+    color: #61892F !important;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  a:hover {
+  color: #86C232 !important;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-  height: 50px;
 }
 
 #logo {
   width: 60px;
   left: 40px;
-  top: 4px;
+  top: 8px;
   position: absolute;
+}
+
+.dropdown-item {
+  text-decoration: none;
+  color: #61892F;
+  background: #222629;
+}
+
+.dropdown-item:hover {
+  color: #86C232;
+  background: #222629;
+}
+
+.dropdown-menu {
+  background: #222629;
+}
+
+#the-logout:hover {
+    color: orange !important;
 }

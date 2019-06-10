@@ -4,4 +4,6 @@ class Report < ApplicationRecord
 
   belongs_to :user
 
+  INCIDENTS = ["Feeling", "Verbal", "Physical"]
+
 end

@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   before_action :set_reports, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @reports = policy_scope(Report)
     start_search
@@ -21,7 +22,6 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
     authorize @report
-    @incidents = ["Feeling", "Verbal", "Physical"]
     if params[:coords] != nil
       coordinates = params[:coords].to_s.slice!(7, 34)
       coord_array = coordinates.split(" ")
@@ -44,7 +44,9 @@ class ReportsController < ApplicationController
     authorize @report
 
     if @report.save
-      redirect_to root_path, notice: 'Report created successfully!'
+      # 'Your comment', post_path(@comment.post) + "#comment_#{@comment.id.to_s}"
+      redirect_to root_path(anchor: 'full'), notice: 'Report created successfully!'
+      # redirect_to root_path, notice: 'Report created successfully!'
     else
       render :new
     end
