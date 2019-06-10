@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   before_action :set_reports, only: [:show, :edit, :update, :destroy]
 
   def index
-    @reports = policy_scope(Report)
+    @reports = policy_scope(Report).where("created_at >= ?", Time.now - 604800)
     start_search
     start_course_plotting
 
@@ -10,7 +10,8 @@ class ReportsController < ApplicationController
       {
         lat: report.latitude,
         lng: report.longitude,
-        infoWindow: render_to_string(partial: 'infowindow', locals: { report: report })
+        infoWindow: render_to_string(partial: 'infowindow', locals: { report: report }),
+        type: report.report_type
       }
     end
   end

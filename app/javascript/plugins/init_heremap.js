@@ -59,14 +59,32 @@ const initMap = () => {
         content: evt.target.getData()
       });
       bubbles.push(bubble);
+
       // show info bubble
-      // console.log(evt.target.getData())
       setTimeout(function(){ ui.addBubble(bubble); }, 10);
 
      }, false);
 
+
+    // var svgMarkup = '<svg width="24" height="24" ' +
+    //   'xmlns="http://www.w3.org/2000/svg">' +
+    //   '<rect stroke="white" fill="#1b468d" x="1" y="1" width="22" ' +
+    //   'height="22" /></svg>';
+
+    const iconPhysical = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_gbpv0n.png');
+    const iconVerbal = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560163227/icons8-marker-32_3_tvjayi.png');
+    const iconFeeling = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_2_ggypsx.png');
+
     actualMarkers.forEach((marker) => {
-      const markerObject = new H.map.Marker({lat:marker.lat, lng:marker.lng})
+      console.log(marker)
+      if (marker.type == "Physical") {
+        var markerObject = new H.map.Marker({lat:marker.lat, lng:marker.lng}, {icon: iconPhysical})
+      } else if(marker.type == "Verbal") {
+        var markerObject = new H.map.Marker({lat:marker.lat, lng:marker.lng}, {icon: iconVerbal})
+      } else {
+        var markerObject = new H.map.Marker({lat:marker.lat, lng:marker.lng}, {icon: iconFeeling})
+      }
+
       // markerObject.setData('div');
       markerObject.setData(marker.infoWindow);
       reports.push(markerObject);
@@ -80,51 +98,12 @@ const initMap = () => {
   };
 
 
-
-  // ------------------------- Geocoding starts here
-  // Create the parameters for the geocoding request:
-
   //Step 3: make the map interactive
   const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 
   // Create the default UI components
   var ui = H.ui.UI.createDefault(map, defaultLayers);
-
-
-  // // Create the parameters for the geocoding request:
-
-  // const geocodingParams = {
-  //     searchText: 'Rue de la Fraternité Schaerbeek'
-  //   };
-
-  // Define a callback function to process the geocoding response:
-
-  // const onResult = function(result) {
-  //   const locations = result.Response.View[0].Result;
-  //     position,
-  //     marker;
-  //   // Add a marker for each location found
-  //   for (i = 0;  i < locations.length; i++) {
-  //   position = {
-  //     lat: locations[i].Location.DisplayPosition.Latitude,
-  //     lng: locations[i].Location.DisplayPosition.Longitude
-  //   };
-  //   marker = new H.map.Marker(position);
-  //   map.addObject(marker);
-  //   }
-  // };
-
-  // Get an instance of the geocoding service:
-  // const geocoder = platform.getGeocodingService();
-
-  // Call the geocode method with the geocoding parameters,
-  // the callback and an error callback function (called if a
-  // communication error occurs):
-
-  // geocoder.geocode(geocodingParams, onResult, function(e) {
-  //   alert(e);
-  // });
 
   //Begining of routing *********************
   const coordStart = targetElement.dataset.coordinatesStart;
