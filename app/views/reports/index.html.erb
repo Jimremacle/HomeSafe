@@ -38,7 +38,7 @@
       <div class="address-report">
         <div>
 
-        <%= form_tag reports_path, :id => "search-form", method: :get do %>
+        <%= form_tag reports_path(anchor: "full"), :id => "search-form", method: :get do %>
           <%= text_field_tag :query_start,
           params[:query_start],
           class: "form-control",
@@ -49,8 +49,9 @@
           class: "form-control",
           placeholder: "Somewhere else in Brussels"
           %>
-          <%= submit_tag "Go!", :id => "submit-search-button" %>
+          <%= submit_tag "Go!" %>
         <% end %>
+        <label class="switch">
 
         <div class="btn btn-success" id="fastest_button">Safest</div>
         <div class="btn btn-primary" id="safest_button">Fastest</div>
