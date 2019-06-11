@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
-  #------------------------Cornel experimental----------
+  #------------------------Cornel experimental start ---------------------------
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
-
-  #-----------------------------------------------------
+  #-------------------------Cornel experimental end ----------------------------
 
 
   protect_from_forgery with: :exception
@@ -15,10 +14,7 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: [:index, :search], unless: :skip_pundit?
 
 
-  #---------------------Cornel experimental -------------------------------
-
-
-
+  #---------------------Cornel experimental start ------------------------------
   def resource_name
     :user
   end
@@ -34,9 +30,7 @@ class ApplicationController < ActionController::Base
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
-
-
-#---------------------Cornel experimental -------------------------------
+#---------------------Cornel experimental end ----------------------------------
 
  private
 
