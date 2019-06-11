@@ -21,35 +21,27 @@ function setUpClickListener(map, ui) {
        ui.removeBubble(oldBubble)
       };
 
-    const bubble = new H.ui.InfoBubble(coord, { content: `<div style="z-index: 0; position: relativ;"> <a href="/reports/new?coords=${coord}">Report an incident${coord}</a> </div>` })
-    document.getElementById("report_address").innerHTML = coord
+    const bubble = new H.ui.InfoBubble(coord, { content: `<div style="z-index: 0; position: relativ;"> <a href="/reports/new?coords=${coord}">Report an incident${coord}</a> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-coord=${coord}>
+            Report
+          </button></div>` })
 
+const repAddress = document.getElementById('report_address');
+// console.log(repAddress);
+repAddress.value = coord;
+
+// var coordinates = coord.to_s.slice(7, 34);
+// const coord_array = coord.split(" ");
+// console.log(coord_array);
+// const longitude = coord_array[0].to_f
+// const latitude =  coord_array[1].to_f
+// const address = Geocoder.search([@latitude, @longitude]).first.address
+// const report.address = @address
 
     ui.addBubble(bubble)
 
     oldBubble = bubble;
-    //console.log(bubble)
 
-
-    // map.addObject(marker);
-
-
-
-
-
-
-
-    // alert('Clicked at ' + Math.abs(coord.lat.toFixed(4)) +
-    //     ((coord.lat > 0) ? 'N' : 'S') +
-    //     ' ' + Math.abs(coord.lng.toFixed(4)) +
-    //      ((coord.lng > 0) ? 'E' : 'W'));
   });
 }
 
 export { setUpClickListener };
-
-
-// Create an icon, an object holding the latitude and longitude, and a marker:
-
-
-
