@@ -52,17 +52,23 @@
           <%= submit_tag "Go!" %>
         <% end %>
         <label class="switch">
-
+<!--
         <div class="btn btn-success" id="fastest_button">Safest</div>
-        <div class="btn btn-primary" id="safest_button">Fastest</div>
+        <div class="btn btn-primary" id="safest_button">Fastest</div> -->
           <!-- <label class="switch" id="fastest_button">
             <input type="checkbox">
             <span class="slider round"></span>
-          </label>
-          <label class="switch" id="safest_button">
+          </label> -->
+          <!-- <label class="switch" id="route_toggle">
             <input type="checkbox">
             <span class="slider round"></span>
           </label> -->
+           <!-- <div class="form-group">
+            <label for="formControlRange">Example Range input</label>
+            <input type="range" class="form-control-range" id="formControlRange">
+          </div> -->
+          <div class="d-flex">Safe
+          <input type="range" class="custom-range" min="0" value="0" max="1" id="routeToggle">Fast</div>
         </div>
       </div>
       <div id="instructionsContainer">

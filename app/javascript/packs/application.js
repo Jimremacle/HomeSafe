@@ -4,7 +4,6 @@ import  { initMap } from '../plugins/init_heremap';
 
 import "../plugins/flatpickr";
 
-
 initAutocomplete();
 initMap();
 
