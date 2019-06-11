@@ -38,7 +38,7 @@
       <div class="address-report">
         <div>
 
-        <%= form_tag reports_path, :id => "search-form", method: :get do %>
+        <%= form_tag reports_path(anchor: "full"), :id => "search-form", method: :get do %>
           <%= text_field_tag :query_start,
           params[:query_start],
           class: "form-control",
@@ -49,16 +49,12 @@
           class: "form-control",
           placeholder: "Somewhere else in Brussels"
           %>
-          <%= submit_tag "Go!", :id => "submit-search-button" %>
+          <%= submit_tag "Go!" %>
         <% end %>
-          <label class="switch" id="fastest_button">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
-          <label class="switch" id="safest_button">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
+        <label class="switch">
+
+        <div class="btn btn-success" id="fastest_button">Safest</div>
+        <div class="btn btn-primary" id="safest_button">Fastest</div>
         </div>
       </div>
       <div id="instructionsContainer">
@@ -80,16 +76,16 @@
           <%# end %>
 
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<!--           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Report
-          </button>
+          </button> -->
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle">Report Incident</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -98,7 +94,7 @@
                   <%= simple_form_for Report.new do |f| %>
 
 
-                  <%= f.input :address, placeholder: @address %>
+                  <%= f.input :address, :as => :hidden, placeholder: "address", id: "form_address" %>
                   <%# raise %>
 
                   <%= f.input :report_type, collection: Report::INCIDENTS %>
@@ -107,7 +103,7 @@
 
                   <%# f.input :occurence_timedate %>
 
-                  <%= f.input :occurence_timedate, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+                  <%= f.input :occurence_timedate, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" }, input_html: {value: "#{Time.now}"} %>
 
 
                 </div>

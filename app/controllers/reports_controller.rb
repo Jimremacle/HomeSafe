@@ -23,6 +23,7 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
     authorize @report
+
     if params[:coords] != nil
       coordinates = params[:coords].to_s.slice!(7, 34)
       coord_array = coordinates.split(" ")
@@ -38,6 +39,15 @@ class ReportsController < ApplicationController
   end
 
   def create
+        if params[:report][:address] != nil
+      coordinates = params[:report][:address].to_s.slice!(7, 34)
+      coord_array = coordinates.split(" ")
+      @longitude = coord_array[0].to_f
+      @latitude =  coord_array[1].to_f
+      @address = Geocoder.search([@latitude, @longitude]).first.address
+      params[:report][:address] = @address
+    end
+    # raise
     @report = Report.new(report_params)
     # making link for nested element; select user in @report and setting
     # equal with the current user

@@ -6,4 +6,9 @@ class Report < ApplicationRecord
 
   INCIDENTS = ["Feeling", "Verbal", "Physical"]
 
+  validates :report_type, presence: true
+  validates :description, presence: true
+  validates :occurence_timedate, presence: true
+  validates :address, presence: true
+
 end
