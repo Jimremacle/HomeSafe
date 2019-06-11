@@ -18,15 +18,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def edit
     @emergency_contact = EmergencyContact.new
     super
+
   end
 
   # PUT /resource
   def update
-    if emergency_contact_params
-      EmergencyContact.find_or_create_by!(emergency_contact_params.merge(user: current_user))
-    else
-      render :edit
-    end
+    current_user.emergency_contacts.last.update!(emergency_contact_params)
     super
   end
 
