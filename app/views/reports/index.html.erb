@@ -75,9 +75,9 @@
           <%# end %>
 
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<!--           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Report
-          </button>
+          </button> -->
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -93,7 +93,7 @@
                   <%= simple_form_for Report.new do |f| %>
 
 
-                  <%= f.input :address, placeholder: @address %>
+                  <%= f.input :address, :as => :hidden, placeholder: "address", id: "form_address" %>
                   <%# raise %>
 
                   <%= f.input :report_type, collection: Report::INCIDENTS %>
