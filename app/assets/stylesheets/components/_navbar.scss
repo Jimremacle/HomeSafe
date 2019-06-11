@@ -47,3 +47,34 @@
 #the-logout:hover {
     color: orange !important;
 }
+
+#login-button-navbar {
+  background-color: #222629;
+  border: none;
+  color: #61892F !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#login-button-navbar:hover {
+  color: #86C232;
+}
+
+.modal-backdrop {
+  z-index: 2;
+}
+
+#logon-form-button {
+  background-color: red;
+}
+
+.navbar-toggler-icon {
+  position: fixed;
+  right: 16px;
+  top: 24px;
+}

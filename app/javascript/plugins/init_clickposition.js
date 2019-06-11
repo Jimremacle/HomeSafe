@@ -21,7 +21,7 @@ function setUpClickListener(map, ui) {
        ui.removeBubble(oldBubble)
       };
 
-    const bubble = new H.ui.InfoBubble(coord, { content: `<div style="z-index: 0; position: relativ;"> <a href="/reports/new?coords=${coord}">Report an incident${coord}</a> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-coord=${coord}>
+    const bubble = new H.ui.InfoBubble(coord, { content: `<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-coord=${coord}>
             Report
           </button></div>` })
 

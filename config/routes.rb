@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :reports
   get 'search', to: 'reports#search'
   get '/profile', to: 'dashboards#profile'
+
 end
