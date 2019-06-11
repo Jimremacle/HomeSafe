@@ -9,6 +9,10 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :current_password,
+                hint: "we need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -16,17 +20,14 @@
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
     <%= f.input :frequent_address, :label => "Home address",
                 hint: "Write your domicile address",
                 required: false %>
+                <% @contact = current_user.emergency_contacts.last %>
     <%= f.simple_fields_for :emergency_contact do |s| %>
-      <%= s.input :name, :label => "Emergency Contact Name", input_html: { placeholder: 'Input name here' } %>
-      <%= s.input :number, :label => "Emergency Contact Number", input_html: { placeholder: 'Input number here' } %>
-      <%= s.input :message, :label => "Message to send", input_html: { placeholder: 'Input message here' } %>
+      <%= s.input :name, :label => "Emergency Contact Name", input_html: { placeholder: 'Input name here', value: @contact&.name } %>
+      <%= s.input :number, :label => "Emergency Contact Number", input_html: { placeholder: 'Input number here', value: @contact&.number } %>
+      <%= s.input :message, :label => "Message to send", input_html: { placeholder: 'Input message here', value: @contact&.message } %>
 
     <% end %>
 

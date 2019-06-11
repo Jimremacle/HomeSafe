@@ -1,5 +1,6 @@
 import { addMarker } from "./init_geolocation";
 import  { setUpClickListener } from "./init_clickposition";
+import { safestRoute } from "./init_saferoute";
 // import { calculateSafeRouteFromAtoB } from "./init_saferoute";
 // import { instantiateMap } from "./instant_map";
 
@@ -149,41 +150,53 @@ const initMap = () => {
     );
   }
 
+  function toggleDisplay(route, rgbaCode, hexCode) {
+    // lets read the input of the slider
+    addRouteShapeToMap(route, rgbaCode);
+    addManueversToMap(route, hexCode);
+    console.log(route);
+    addWaypointsToPanel(route.waypoint);
+    addManueversToPanel(route);
+    addSummaryToPanel(route.summary);
+    // if the value is 0 - display safe route navigation
+
+    // if the value is 1 - display fast route navigation
+  }
+
   function onFastSuccess(result) {
     const route = result.response.route[0];
-    const button = document.getElementById("safest_button")
+    const hex = "#1b468d";
+    const rgba = 'rgba(0, 128, 255, 0.7)';
 
-    addRouteShapeToMap(route, 'rgba(0, 128, 255, 0.7)');
-    addManueversToMap(route, "#1b468d");
+    addRouteShapeToMap(route, rgba);
+    addManueversToMap(route, hex);
 
-    button.addEventListener("click", () => {
+    const toggler = document.getElementById('routeToggle');
 
-      addRouteShapeToMap(route, 'rgba(0, 128, 255, 0.7)');
-      addManueversToMap(route, "#1b468d");
-
-      addWaypointsToPanel(route.waypoint);
-      addManueversToPanel(route);
-      addSummaryToPanel(route.summary);
-
+    toggler.addEventListener("click", () => {
+      if (toggler.value === "1") {
+        toggleDisplay(route, rgba, hex)
+      }
     });
-
   }
+
 
   function onSafeSuccess(result) {
     const route = result.response.route[0];
-    const fastButton = document.getElementById('fastest_button')
+    const hex = "#1ab631";
+    const rgba = 'rgba(71, 196, 90, 0.7)';
 
-    addRouteShapeToMap(route, 'rgba(71, 196, 90, 0.7)');
-    addManueversToMap(route, "#1ab631");
+    addRouteShapeToMap(route, rgba);
+    addManueversToMap(route, hex);
+    const toggler = document.getElementById('routeToggle');
 
-    fastButton.addEventListener("click", () => {
-      addRouteShapeToMap(route, 'rgba(71, 196, 90, 0.7)');
-      addManueversToMap(route, "#1ab631");
-      addWaypointsToPanel(route.waypoint);
-      addManueversToPanel(route);
-      addSummaryToPanel(route.summary);
-
+    toggler.addEventListener("click", () => {
+      if (toggler.value === "0") {
+        toggleDisplay(route, rgba, hex)
+      }
     });
+
+    toggleDisplay(route, rgba, hex);
   }
 
   function onError(error) {
@@ -353,6 +366,7 @@ const routeInstructionsContainer = document.getElementById('instructionsContaine
   setUpClickListener(map, ui);
  // addMarker(targetElement, platform, ui);
   addMarkersAndSetViewBounds(map);
+
   addMarker(targetElement, platform, ui);
 
   switchMapLanguage(map, platform);
