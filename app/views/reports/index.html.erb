@@ -84,7 +84,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle">Report Incident</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -102,7 +102,7 @@
 
                   <%# f.input :occurence_timedate %>
 
-                  <%= f.input :occurence_timedate, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+                  <%= f.input :occurence_timedate, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" }, input_html: {value: "#{Time.now}"} %>
 
 
                 </div>
