@@ -3,7 +3,7 @@
     <div class="row w-100">
       <div class="text col-xs-12 col-sm-6">
         <h1>naviSafe</h1>
-        <h3>Short cut to safety</h3>
+        <h3>A shortcut to safety</h3>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="app align-middle d-flex justify-content-around">
@@ -37,20 +37,25 @@
 
       <div class="address-report">
         <div>
-
-        <%= form_tag reports_path(anchor: "full"), :id => "search-form", method: :get do %>
-          <%= text_field_tag :query_start,
-          params[:query_start],
-          class: "form-control",
-          placeholder: "Somewhere in Brussels"
-          %>
-          <%= text_field_tag :query_end,
-          params[:query_end],
-          class: "form-control",
-          placeholder: "Somewhere else in Brussels"
-          %>
-          <%= submit_tag "Go!" %>
-        <% end %>
+          <div class="search-destination d-flex">
+            <div>
+              <%= form_tag reports_path(anchor: "full"), :id => "search-form", method: :get do %>
+                <%= text_field_tag :query_start,
+                params[:query_start],
+                class: "form-control",
+                placeholder: "Somewhere in Brussels"
+                %>
+                <%= text_field_tag :query_end,
+                params[:query_end],
+                class: "form-control",
+                placeholder: "Somewhere else in Brussels"
+                %>
+              </div>
+              <div>
+                <%= submit_tag "Go!", id:"go-button" %>
+               </div>
+            <% end %>
+          </div>
         <label class="switch">
 <!--
         <div class="btn btn-success" id="fastest_button">Safest</div>
@@ -71,7 +76,7 @@
           <input type="range" class="custom-range" min="0" value="0" max="1" id="routeToggle">Fast</div>
         </div>
       </div>
-      <div id="instructionsContainer">
+      <div id="instructionsContainer" style="overflow-y: scroll; height:400px;">
 
       </div>
       <div>
