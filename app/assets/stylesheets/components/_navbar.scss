@@ -48,7 +48,7 @@
     color: orange !important;
 }
 
-#login-button {
+#login-button-navbar {
   background-color: #222629;
   border: none;
   color: #61892F !important;
@@ -61,7 +61,7 @@
   font-size: 16px;
 }
 
-#login-button:hover {
+#login-button-navbar:hover {
   color: #86C232;
 }
 
@@ -70,6 +70,11 @@
 }
 
 #logon-form-button {
-
   background-color: red;
+}
+
+.navbar-toggler-icon {
+  position: fixed;
+  right: 16px;
+  top: 24px;
 }
