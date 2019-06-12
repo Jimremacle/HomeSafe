@@ -1,83 +1,95 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
 
-  <%= link_to root_path(anchor: 'full') , class: "navbar-brand" do %>
-  <%= image_tag "logo.png", id: 'logo'  %>
-  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div id="nav-container">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
-        <li class="nav-item active">
-          <a href="#full" class="nav-link">home</a>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item", id: "the-logout" %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div id="div-with-logo">
+        <%= link_to root_path(anchor: 'full') , class: "navbar-brand" do %>
+        <%= image_tag "logo.png", id: 'logo'  %>
+        <% end %>
+      </div>
+
+      <% if user_signed_in? %>
+
+        <div>
+          <div id="the-panic-button">
+            <%= link_to "emergency", emergency_contacts_path, method: :post, id: "link-panic-button"  %>
           </div>
-        </li>
-        <% else %>
-        <li class="nav-item">
-
-          <%# link_to "Login", new_user_session_path, class: "nav-link" %>
-          <button type="button" id="login-button-navbar" data-toggle="modal" data-target="#loginForm">
-            login
-          </button>
-
-
-
-
-          <!-- Modal exampleModalCenter-->
-          <div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="loginFormTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="loginFormTitle">Login</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
+        </div>
+        <div>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="#full" class="nav-link">home</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Messages", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item", id: "the-logout" %>
+              </div>
+            </li>
+        </div>
 
 
+      <% else %>
+      <div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
 
-                  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                  <div class="form-inputs">
-                    <%= f.input :email,
-                    required: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" } %>
-                    <%= f.input :password,
-                    required: false,
-                    input_html: { autocomplete: "current-password" } %>
-                    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            <%# link_to "Login", new_user_session_path, class: "nav-link" %>
+            <button type="button" id="login-button-navbar" data-toggle="modal" data-target="#loginForm">
+              login
+            </button>
+            <!-- Modal exampleModalCenter-->
+            <div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="loginFormTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="loginFormTitle">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
+                  <div class="modal-body">
 
-                  <%= render "devise/shared/links" %>
 
-                </div>
-                <div class="modal-footer form-actions">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <%= f.button :submit, "Log in", id: 'logon-form-button' %>
-                  <% end %>
+
+                    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="form-inputs">
+                      <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+                      <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+                      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                    </div>
+
+                    <%= render "devise/shared/links" %>
+
+                  </div>
+                  <div class="modal-footer form-actions">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <%= f.button :submit, "Log in", id: 'logon-form-button' %>
+                    <% end %>
+
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-        </li>
-        <% end %>
-      </ul>
-    </div>
+          </li>
+        </ul>
+      </div>
+      <% end %>
+
   </div>
 </div>
