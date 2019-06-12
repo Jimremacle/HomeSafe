@@ -48,3 +48,33 @@
 .text {
   padding-left: 20px;
 }
+
+#cardings{
+  height: 30vh;
+  background-color: #222629;
+}
+
+.icon-awesome{
+  font-size: 48px;
+  text-align: center;
+}
+
+.carding{
+  background-color: #222629;
+  color: #61892F;
+}
+
+.carding h1{
+  text-align: center;
+  margin: 10px;
+}
+
+// @media all and (max-width:800px) //800px for tablets and phones.
+// {
+//     .carding
+//     {
+//         display: block;
+//         float: none;
+//         width: 100%;
+//     }
+// }
