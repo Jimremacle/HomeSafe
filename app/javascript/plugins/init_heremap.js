@@ -8,6 +8,7 @@ const initMap = () => {
 
   // Retrieve the target element for the map:
   const targetElement = document.getElementById('mapContainer');
+  if(!targetElement) {return};
   const appId = targetElement.dataset.hereAppId
   const appCode = targetElement.dataset.hereAppCode
 
@@ -154,7 +155,6 @@ const initMap = () => {
     // lets read the input of the slider
     addRouteShapeToMap(route, rgbaCode);
     addManueversToMap(route, hexCode);
-    console.log(route);
     addWaypointsToPanel(route.waypoint);
     addManueversToPanel(route);
     addSummaryToPanel(route.summary);

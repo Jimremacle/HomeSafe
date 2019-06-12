@@ -14,7 +14,7 @@
       <% if user_signed_in? %>
         <div>
           <div id="the-panic-button">
-            <%= link_to "emergency", emergency_contacts_path, method: :post, id: "link-panic-button"  %>
+            <%= link_to "emergency", emergency_contacts_path, method: :post, id: "distress", class: "btn btn-danger"  %>
           </div>
         </div>
         <div>
