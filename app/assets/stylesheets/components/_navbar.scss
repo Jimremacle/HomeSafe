@@ -93,21 +93,29 @@
   color: white;
 }
 
-#link-panic-button {
+#distress {
   color: white !important;
   font-weight: bolder !important;
-}
-
-
-#the-panic-button {
   background-color: #FF0000;
   padding: 10px;
   border-radius: 8px;
-}
-
-#the-panic-button:hover {
-  background-color: #DD1111;
-  padding: 10px;
-  border-radius: 8px;
+  width: 180px;
+  height: 85%;
 
 }
+
+
+// #the-panic-button {
+//   background-color: #FF0000;
+//   padding: 10px;
+//   border-radius: 8px;
+// }
+
+// #the-panic-button:hover {
+//   background-color: #DD1111;
+//   padding: 10px;
+//   border-radius: 8px;
+
+// }
+
+// link-panic-button
