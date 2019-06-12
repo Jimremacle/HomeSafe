@@ -1,7 +1,8 @@
 .banner {
-  background-image: asset-url("dark-street-2.jpg");
+  background-image: asset-url("bg_resized.jpg");
   height: calc(100vh - 56px);
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: auto;
   object-fit: cover;
   background-position: center;
   padding: 300px 0px 145px 0px;
@@ -11,9 +12,10 @@
 
 .banner h1 {
   color: white;
-  font-size: 44px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  font-size: 60px;
+  text-shadow: 5px 5px 10px black;
   font-weight: bolder;
+
 }
 
 .banner h3 {
