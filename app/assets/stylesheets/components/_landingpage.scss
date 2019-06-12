@@ -28,7 +28,7 @@
 
 .fab {
   border-style: solid;
-  border-radius: 40px;
+  // border-radius: 40px;
   border-color: rgb(255, 255, 255);
   color: rgb(255, 255, 255);
   // line-height: 66px;
@@ -65,17 +65,47 @@
   color: #61892F;
 }
 
-.carding h1{
+.carding h4{
   text-align: center;
   margin: 10px;
 }
 
-// @media all and (max-width:800px) //800px for tablets and phones.
-// {
-//     .carding
-//     {
-//         display: block;
-//         float: none;
-//         width: 100%;
-//     }
-// }
+@media only screen and (max-width: 600px) {
+  .icon-awesome{
+    font-size: 200%;
+
+  }
+  .banner{
+    padding: 210px 0px 145px 0px;
+    height: calc(80vh - 56px);
+    .banner-text{
+      .text h1{
+        font-size: 45px;
+      }
+      .text h3{
+        font-size: 25px;
+      }
+    }
+    .fab{
+      width: 140px;
+      margin-top: 70px;
+    }
+  }
+  #cardings{
+    justify-content: space-between;
+    align-items: center;
+    height: 18vh;
+  }
+  .icon-awesome{
+  font-size: 36px;
+  }
+  .carding h4{
+    font-size: 20px;
+  }
+  .carding-desc{
+    display: none;
+  }
+  .arrow-down{
+    display: none;
+  }
+}
