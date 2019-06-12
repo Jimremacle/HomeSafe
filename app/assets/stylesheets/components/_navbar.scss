@@ -18,8 +18,15 @@
   }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+#navbarSupportedContent {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#if-user-signed-in {
+  display: flex;
+  justify-content: space-between;
 }
 
 #logo {
@@ -27,6 +34,10 @@
   left: 40px;
   top: 8px;
   position: absolute;
+}
+
+#div-with-logo {
+  width: 200px;
 }
 
 .dropdown-item {
@@ -59,6 +70,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  overflow-y: scroll;
 }
 
 #login-button-navbar:hover {
@@ -67,6 +79,7 @@
 
 .modal-backdrop {
   z-index: 2;
+
 }
 
 #logon-form-button {
@@ -77,4 +90,24 @@
   position: fixed;
   right: 16px;
   top: 24px;
+  color: white;
+}
+
+#link-panic-button {
+  color: white !important;
+  font-weight: bolder !important;
+}
+
+
+#the-panic-button {
+  background-color: #FF0000;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#the-panic-button:hover {
+  background-color: #DD1111;
+  padding: 10px;
+  border-radius: 8px;
+
 }
