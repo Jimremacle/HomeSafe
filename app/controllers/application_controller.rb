@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: [:index, :search], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:index, :search], unless: :skip_pundit?
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
 
   #---------------------Cornel experimental start ------------------------------
   def resource_name
