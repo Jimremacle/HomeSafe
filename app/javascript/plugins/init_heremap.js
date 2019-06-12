@@ -369,7 +369,7 @@ const routeInstructionsContainer = document.getElementById('instructionsContaine
 
   addMarker(targetElement, platform, ui);
 
-  switchMapLanguage(map, platform);
+  // switchMapLanguage(map, platform);
 
 }
 
