@@ -24,7 +24,7 @@
     <div
       id="mapContainer"
       style="width: 75%;
-      height: 91vh;"
+      height: calc(100vh - 140px);"
       data-markers="<%= @markers.to_json %>"
       data-geo-marker="<%= @geolocation_marker %>"
       data-coordinates-start="<%= @coordinates_start %>"
@@ -33,11 +33,11 @@
       data-here-app-code="<%= ENV['here_app_code'] %>"
       class="col-12 col-lg-8"
     ></div>
-    <div class="col-12 col-lg-4">
+    <div class="col-12 col-lg-4" id="address-buttons">
 
       <div class="address-report">
         <div>
-          <div class="search-destination d-flex">
+          <div class="search-destination">
             <div>
               <%= form_tag reports_path(anchor: "full"), :id => "search-form", method: :get do %>
                 <%= text_field_tag :query_start,
@@ -51,46 +51,32 @@
                 placeholder: "Somewhere else in Brussels"
                 %>
               </div>
-              <div>
-                <%= submit_tag "Go!", id:"go-button" %>
-               </div>
-            <% end %>
-          </div>
-        <label class="switch">
-<!--
-        <div class="btn btn-success" id="fastest_button">Safest</div>
-        <div class="btn btn-primary" id="safest_button">Fastest</div> -->
-          <!-- <label class="switch" id="fastest_button">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label> -->
-          <!-- <label class="switch" id="route_toggle">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label> -->
-           <!-- <div class="form-group">
-            <label for="formControlRange">Example Range input</label>
-            <input type="range" class="form-control-range" id="formControlRange">
-          </div> -->
-          <div class="d-flex">Safe
-          <input type="range" class="custom-range" min="0" value="0" max="1" id="routeToggle">Fast</div>
-        </div>
-      </div>
-      <div id="instructionsContainer" style="overflow-y: scroll; height:400px;">
+              <div class="d-flex justify-content-between">
 
+                <div>
+                  <%= button_tag :submit do %>
+                    <i class="fas fa-arrow-circle-right"></i>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="d-flex" id="safe-fast-toggle">Safe
+              <input type="range" class="custom-range" min="0" value="0" max="1" id="routeToggle">Fast</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div id="instructionsContainer">
       </div>
       <div>
         <br>
         <br>
         <div class="d-flex justify-content-around">
 
-          <div>
-            <%= link_to "Distress Message", emergency_contacts_path, class:"btn btn-danger", id:"distress"  %>
-          </div>
-          <div class="btn btn-success" id="test-button">
-            TEST
-          </div>
 
+<!--           <div> -->
+            <%#= link_to "Distress Message", emergency_contacts_path, class:"btn btn-danger", id:"distress"  %>
+<!--           </div> -->
 
 
           <%# link_to new_report_path do %>

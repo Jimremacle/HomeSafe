@@ -1,13 +1,9 @@
 .address-report {
   display: flex;
-  margin-top: 10px;
-  padding: 20px;
+  // margin-top: 10px;
+  padding-top: 6px;
   justify-content: space-between;
-}
-
-.btn-primary {
-
-  height: 40px;
+  padding-left: 16px;
 }
 
 #e {
@@ -31,4 +27,16 @@
   border-radius:2px;
 }
 
+.algolia-places {
+  padding-top: 8px;
+}
+
+.address-report {
+  // max-height: 40px;
+}
+
+#safe-fast-toggle {
+  margin-right: 14px;
+  padding-top: 6px;
+}
 
