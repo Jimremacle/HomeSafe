@@ -8,9 +8,12 @@ function browserLocation() {
     console.log(event);
     event.preventDefault();
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-      console.log(showPosition);
-
+      setTimeout(function(){
+        navigator.geolocation.getCurrentPosition(showPosition, error, options);
+        console.log(showPosition);
+      }, 1000);
+      // navigator.geolocation.getCurrentPosition(showPosition, error, options);
+      // console.log(showPosition);
     } else {
       target.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -23,6 +26,14 @@ function browserLocation() {
     window.location.href = content + coords;
   }
 
+  function error(err) {
+    alert(`ERREUR ${err.message}`);
+  }
+
+  const options = {
+    enableHighAccuracy: true,
+    setTimeout: 5000
+  }
   // function showPosition(position) {
   //   var latlon = position.coords.latitude + "," + position.coords.longitude;
 
