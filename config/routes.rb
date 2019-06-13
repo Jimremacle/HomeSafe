@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :reports
   get 'search', to: 'reports#search'
-  get '/profile', to: 'dashboards#profile'
+  get '/empower', to: 'dashboards#empower'
 
 end
