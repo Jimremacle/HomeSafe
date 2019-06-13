@@ -1,14 +1,14 @@
 <div style="height: 30px;"></div>
 <div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-6 edit_user">
+    <div class="col-md-6 edit_user" style="color: #484848">
       <h3>Report an incident</h3>
       <p>Please describe the incident</p>
       <p>Where</p>
       <%= simple_form_for @report do |f| %>
 
 
-        <%= f.input :address, placeholder: @address %>
+        <%= f.input :address, placeholder: @address  %>
         <%# raise %>
 
         <%= f.input :report_type, collection: Report::INCIDENTS %>
