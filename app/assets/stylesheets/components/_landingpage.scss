@@ -17,9 +17,9 @@
 }
 
 #naviSafe-banner-text {
-  color: white;
+  color: #FBFBFB;
   font-size: 90px;
-  text-shadow: 5px 5px 10px black;
+  text-shadow: 3px 3px 8px #484848;
 
 }
 
@@ -28,8 +28,8 @@
 }
 
 #naviSafe-banner-subtitle {
-  color: white;
-  text-shadow: 1px 1px 3px black;
+  color: #FBFBFB;
+  text-shadow: 1px 1px 1px #484848;
   font-size: 35px;
   opacity: 1;
   font-weight: bolder;
@@ -146,11 +146,17 @@
   }
 
   #main-landing-div{
-    margin-top: 160px;
+    margin-top: 150px;
     i{
       margin-top: 20px;
     }
-  }
+    #naviSafe-banner-text{
+      margin-bottom: 0px;
+    }
 
+  }
+  #mapContainer{
+    // height: 80vh;
+  }
 }
 
