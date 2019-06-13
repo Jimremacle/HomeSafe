@@ -9,6 +9,7 @@ function browserLocation() {
     event.preventDefault();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
+      console.log(showPosition);
 
     } else {
       target.innerHTML = "Geolocation is not supported by this browser.";
