@@ -96,6 +96,7 @@
   }
   #landing-icon:hover{
     color: #2f2f2f;
+    // font-size: 50px;
   }
   .carding-desc{
     padding: 15px;
@@ -167,6 +168,9 @@
   #mapContainer{
     // height: 80vh;
     padding-right: 0 !important;
+  }
+  #map-size-phone{
+    width: 103.5%;
   }
 }
 
