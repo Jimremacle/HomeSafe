@@ -29,7 +29,7 @@
       <div class="carding-desc"><p>Find the safest path to your deestination. </p></div>
     </div>
     <div class="carding">
-      <div class="icon-awesome"><%= link_to '<i class="far fa-flag"></i>'.html_safe, new_report_path, id: "landing-icon" %></div>
+      <div class="icon-awesome"><%= link_to '<i class="far fa-flag"></i>'.html_safe, root_path(anchor: 'full'), id: "landing-icon" %></div>
       <div><h4>Report</h4></div>
       <div class="carding-desc"><p>Warn others of dangers you've witnessed.</p></div>
     </div>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <%= f.button :submit %>
+                  <%= f.button :submit, class: "btn btn-primary" %>
                   <% end %>
                 </div>
               </div>

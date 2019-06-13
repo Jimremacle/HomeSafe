@@ -23,4 +23,9 @@ if (addressUpdate) {
   places({ container: addressUpdate });
 };
 
+const addressReport = document.getElementById('report_address');
+if (addressReport) {
+  places({ container: addressReport });
+};
+
 export { initAutocomplete };
