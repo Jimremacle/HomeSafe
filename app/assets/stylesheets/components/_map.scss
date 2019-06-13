@@ -154,3 +154,13 @@
 .directions li span.ferry  {
   background-position:-1316px;
 }
+
+@media only screen and (max-width: 600px) {
+    #mapContainer {
+      //box-shadow: 12px 12px 8px 4px rgba(0,0,0,0.51);
+      object-fit: cover;
+      width: 79%;
+      height: calc(100vh - 140px);
+    }
+
+}
