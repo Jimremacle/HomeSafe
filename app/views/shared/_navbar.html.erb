@@ -22,16 +22,16 @@
             <li class="nav-item active">
                <%= link_to "Home", root_path, class:"nav-link d-none d-sm-block" %>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <%= link_to "Messages", "#", class: "nav-link d-none d-sm-block" %>
-            </li>
+            </li> -->
             <li class="nav-item dropdown">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               <%= link_to "Home", root_path, class: "dropdown-item d-sm-none d-block" %>
-                <%= link_to "Messages", "#", class: "dropdown-item d-sm-none d-block" %>
+
+                <%= link_to "Home", root_path, class:"dropdown-item d-sm-none d-block" %>
                 <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Empower", empower_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item", id: "the-logout" %>
               </div>
             </li>
@@ -77,7 +77,7 @@
                   </div>
                   <div class="modal-footer form-actions">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <%= f.button :submit, "Log in", id: 'logon-form-button' %>
+                    <%= f.button :submit, "Log in", class: "btn btn-primary" %>
                     <% end %>
 
                   </div>

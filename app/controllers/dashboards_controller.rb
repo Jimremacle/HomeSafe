@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
-  skip_after_action :verify_authorized, only: [:edit, :profile]
+  skip_after_action :verify_authorized, only: [:edit, :empower]
   def edit
     @usertoedit = current_user
     raise
