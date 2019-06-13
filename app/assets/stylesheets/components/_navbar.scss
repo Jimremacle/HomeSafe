@@ -5,6 +5,8 @@
   width: 100%;
   z-index: 999;
   opacity: 1;
+  padding: 0.0rem 0.0rem 0.0rem 1.2rem;
+
   /* height: 74px; */
   a {
     text-decoration: none;
@@ -14,7 +16,7 @@
   }
 
   a:hover {
-  color: #86C232 !important;
+    color: $navbar-link-hover-for-real !important;
   }
 }
 
@@ -38,14 +40,22 @@
   max-width: 200px;
 }
 
+
 .dropdown-item {
   text-decoration: none;
   color: #484848;
   background: $bg-color;
 }
 
+// .dropdown-item {
+//   text-decoration: none;
+//   color: link-color;
+//   background: $bg-color;
+// }
+
+
 .dropdown-item:hover {
-  color: #86C232;
+  color: $navbar-link-hover-for-real;
   background: $bg-color;
 }
 
@@ -99,11 +109,11 @@
   position: fixed;
   right: 16px;
   top: 24px;
-  color: white;
+  //color: white;
 }
 
 #distress {
-  color: white !important;
+  //color: white !important;
   font-weight: bolder !important;
   background-color: #FF0000;
   padding: 10px;
@@ -125,6 +135,7 @@
 #navbarDropdown {
   cursor: pointer;
 }
+
 
 // #the-panic-button {
 //   background-color: #FF0000;

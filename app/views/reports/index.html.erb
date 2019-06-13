@@ -1,10 +1,14 @@
 <div class="banner">
   <div class="container banner-text">
     <div class="row w-100">
+
       <div class="text col-xs-12 col-sm-6" id="main-landing-div">
-        <h1 class="ml-4">naviSafe</h1>
-        <h3>&nbsp&nbsp&nbsp&nbspA shortcut to safety</h3>
+<!--         <h1 class="ml-4">naviSafe</h1> -->
+        <p id="naviSafe-banner-text">navi<b>Safe</b><p>
+<!--         <h3>&nbsp&nbsp&nbsp&nbspA shortcut to safety</h3> -->
+      <p id="naviSafe-banner-subtitle">&nbsp&nbsp&nbsp&nbspA shortcut to safety</p>
         <div class="app align-middle d-flex justify-content-left">
+             
           <span><i class="fab fa-google-play"> Android</i></span>
           <span><i class="fab fa-apple"> Apple</i></span>
         </div>
@@ -70,9 +74,11 @@
               </div>
               <div class="d-flex justify-content-between" id="search-icon-toggle">
 
-                <div>
+                <div id="button-to-go">
                   <%= button_tag :submit do %>
+
                     <i class="fas fa-search-location", id="button-to-go"></i>
+
                   <% end %>
                 </div>
               <% end %>
