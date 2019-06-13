@@ -14,7 +14,7 @@
       <% if user_signed_in? %>
         <div>
           <div id="the-panic-button">
-            <%= link_to '<i class="fas fa-exclamation-circle"></i>'.html_safe, emergency_contacts_path, method: :post, id: "distress" %>
+            <%= link_to '<i class="fas fa-exclamation-circle"></i>'.html_safe, emergency_contacts_path, method: :get, id: "distress" %>
           </div>
         </div>
         <div class="nav-user-profile">
@@ -28,6 +28,7 @@
             <li class="nav-item dropdown">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
                 <%= link_to "Home", root_path, class:"dropdown-item d-sm-none d-block" %>
                 <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
                 <%= link_to "Empower", empower_path, class: "dropdown-item" %>
