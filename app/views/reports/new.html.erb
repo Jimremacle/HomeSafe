@@ -1,25 +1,27 @@
-<h3>Report an incident</h3>
-<p>Please describe the incident</p>
-<p>Where</p>
+<div style="height: 30px;"></div>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6 edit_user">
+      <h3>Report an incident</h3>
+      <p>Please describe the incident</p>
+      <p>Where</p>
+      <%= simple_form_for @report do |f| %>
 
 
-<div>
-  <%= simple_form_for @report do |f| %>
+        <%= f.input :address, placeholder: @address %>
+        <%# raise %>
 
+        <%= f.input :report_type, collection: Report::INCIDENTS %>
 
-    <%= f.input :address, placeholder: @address %>
-    <%# raise %>
+        <%= f.input :description %>
 
-    <%= f.input :report_type, collection: Report::INCIDENTS %>
-
-    <%= f.input :description %>
-
-    <%# f.input :occurence_timedate %>
-
-    <%= f.input :occurence_timedate, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+        <%= f.input :occurence_timedate, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" }, input_html: {value: "#{Time.now}"} %>
 
 
 
-    <%= f.button :submit %>
-  <% end %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
