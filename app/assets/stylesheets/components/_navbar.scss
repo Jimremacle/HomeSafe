@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #222629;
+  background: $bg-color;
   position: fixed;
   width: 100%;
   z-index: 999;
@@ -41,16 +41,16 @@
 .dropdown-item {
   text-decoration: none;
   color: #61892F;
-  background: #222629;
+  background: $bg-color;
 }
 
 .dropdown-item:hover {
   color: #86C232;
-  background: #222629;
+  background: $bg-color;
 }
 
 .dropdown-menu {
-  background: #222629;
+  background: $bg-color;
 }
 
 #the-logout:hover {
@@ -58,7 +58,7 @@
 }
 
 #login-button-navbar {
-  background-color: #222629;
+  background-color: $bg-color;
   border: none;
   color: #61892F !important;
   font-weight: 500;
@@ -109,9 +109,15 @@
   width: 60px;
   height: 85%;
   font-size: 30px;
-
 }
 
+#distress-image {
+  width: 40px;
+}
+
+#distress:hover {
+  background-color: #DD0000;
+}
 
 // #the-panic-button {
 //   background-color: #FF0000;

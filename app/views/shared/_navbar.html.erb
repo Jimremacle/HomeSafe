@@ -14,7 +14,10 @@
       <% if user_signed_in? %>
         <div>
           <div id="the-panic-button">
-            <%= link_to '<i class="fas fa-exclamation-circle"></i>'.html_safe, emergency_contacts_path, method: :post, id: "distress" %>
+            <%= link_to emergency_contacts_path , id: "distress" do %>
+            <%= image_tag "sos.png", id: 'distress-image'  %>
+            <% end %>
+            <%# link_to '<i class="fas fa-exclamation-circle"></i>'.html_safe, emergency_contacts_path, method: :post, id: "distress" %>
           </div>
         </div>
         <div class="nav-user-profile">
