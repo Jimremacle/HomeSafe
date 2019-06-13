@@ -8,7 +8,7 @@
   padding: 300px 0px 145px 0px;
   position: relative;
   min-width: 414px;
-  box-shadow: 0px 40px 50px  #222629 inset, -0px -40px 50px 0 #222629 inset;
+  //box-shadow: 0px 40px 50px  $bg-color inset, -0px -40px 50px 0 $bg-color inset;
 }
 
 .banner h1 {
@@ -53,7 +53,7 @@
 
 #cardings{
   height: 30vh;
-  background-color: #222629;
+  background-color: $bg-color;
 }
 
 .icon-awesome{
@@ -62,7 +62,7 @@
 }
 
 .carding{
-  background-color: #222629;
+  background-color: $bg-color;
   color: #61892F;
 }
 
@@ -117,4 +117,8 @@
   .arrow-down{
     display: none;
   }
+}
+
+#div-cards-landing-page {
+  background-color: $bg-color;
 }

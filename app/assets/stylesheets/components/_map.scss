@@ -1,7 +1,9 @@
-// #mapContainer {
-//   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-//   filter: grayscale(75%);
-// }
+#mapContainer {
+  box-shadow: 12px 12px 8px 4px rgba(0,0,0,0.51);
+  object-fit: cover;
+  width: 80%;
+  height: calc(100vh - 140px);
+}
 
 .directions li span.arrow {
   display:inline-block;

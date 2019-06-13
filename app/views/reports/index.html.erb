@@ -17,7 +17,7 @@
     </div>
   </div>
 </div>
-<div style="background-color: #222629">
+<div id="div-cards-landing-page">
   <div id="cardings" class="container d-flex">
     <div class="carding">
       <div class="icon-awesome" ><%= link_to '<i class="far fa-compass"></i>'.html_safe, root_path(anchor: 'full') , id: "landing-icon" %></div>
@@ -41,8 +41,6 @@
 
     <div
       id="mapContainer"
-      style="width: 80%;
-      height: calc(100vh - 140px);"
       data-markers="<%= @markers.to_json %>"
       data-geo-marker="<%= @geolocation_marker %>"
       data-coordinates-start="<%= @coordinates_start %>"
