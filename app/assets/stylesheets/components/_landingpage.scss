@@ -1,6 +1,6 @@
 .banner {
   background-image: asset-url("guilherme-stecanella-587579-unsplash.jpg");
-  height: calc(70vh - 56px);
+  height: calc(75vh - 56px);
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
@@ -33,7 +33,7 @@
   color: rgb(255, 255, 255);
   // line-height: 66px;
   border-width: 2px;
-  margin: 26px 26px 0px;
+  margin: 46px 26px 0px;
   padding: 18px;
   font-weight: bolder;
   font-size: 17px;
@@ -44,7 +44,7 @@
 
 .fab:hover {
   background-color: white;
-  color: #61892F;
+  color: #484848;
 }
 
 .text {
@@ -52,8 +52,10 @@
 }
 
 #cardings{
-  height: 30vh;
+  height: 25vh;
   background-color: $bg-color;
+  display: flex;
+  justify-content: space-between;
 }
 
 .icon-awesome{
@@ -63,7 +65,7 @@
 
 .carding{
   background-color: $bg-color;
-  color: #61892F;
+  color: #484848;
 }
 
 .carding h4{
@@ -72,12 +74,14 @@
 }
   #landing-icon{
     text-decoration: none;
-    color: white;
+    color: #484848;
   }
   #landing-icon:hover{
-    color: #61892F;
+    color: #2f2f2f;
   }
-
+  .carding-desc{
+    padding: 15px;
+  }
 @media only screen and (max-width: 600px) {
   .icon-awesome{
     font-size: 200%;
@@ -85,7 +89,7 @@
   }
   .banner{
     padding: 210px 0px 145px 0px;
-    height: calc(80vh - 56px);
+    height: calc(83vh - 56px);
     .banner-text{
       .text h1{
         font-size: 45px;
@@ -102,11 +106,11 @@
   #cardings{
     justify-content: space-between;
     align-items: center;
-    height: 18vh;
+    height: 15vh;
   }
   .icon-awesome{
     font-size: 36px;
-    color: #61892F;
+    color: #484848;
   }
   .carding h4{
     font-size: 20px;
@@ -117,8 +121,17 @@
   .arrow-down{
     display: none;
   }
+
+  #div-cards-landing-page {
+    background-color: $bg-color;
+  }
+
+  #main-landing-div{
+    margin-top: 160px;
+    i{
+      margin-top: 20px;
+    }
+  }
+
 }
 
-#div-cards-landing-page {
-  background-color: $bg-color;
-}

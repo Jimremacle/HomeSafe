@@ -1,13 +1,15 @@
 .H_ib_body{
   color: #FFFFFF;
-  background: #86C232 !important;
+  background: #484848 !important;
   border: 1px solid black;
   padding:0px;
+  width: 80px;
 }
 
 #pop-up-text {
   font-size: 14px;
   font-weight: bold;
+  text-align: center;
 }
 
 #pop-up-text h3{
@@ -20,3 +22,15 @@
   font-weight: bold;
   margin-bottom: 0;
 }
+.popup-report{
+  background: #484848 !important;
+  border: solid 1px #484848;
+  font-weight: bolder;
+}
+
+.popup-report:hover{
+  background: #2f2f2f !important;
+  border: solid 1px #2f2f2f;
+
+}
+
