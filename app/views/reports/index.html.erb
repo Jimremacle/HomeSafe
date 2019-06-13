@@ -1,16 +1,20 @@
 <div class="banner">
   <div class="container banner-text">
     <div class="row w-100">
-      <div class="text col-xs-12 col-sm-6">
+
+      <div class="text col-xs-12 col-sm-6" id="main-landing-div">
+<!--         <h1 class="ml-4">naviSafe</h1> -->
         <p id="naviSafe-banner-text">navi<b>Safe</b><p>
-        <!-- <p id="naviSafe-banner-text">navi<b>Safe</b><p> -->
-        <p id="naviSafe-banner-subtitle">&nbsp&nbsp&nbsp&nbspA shortcut to safety</p>
-      </div>
-      <div class="col-xs-12 col-sm-6">
+<!--         <h3>&nbsp&nbsp&nbsp&nbspA shortcut to safety</h3> -->
+      <p id="naviSafe-banner-subtitle">&nbsp&nbsp&nbsp&nbspA shortcut to safety</p>
         <div class="app align-middle d-flex justify-content-left">
+             
           <span><i class="fab fa-google-play"> Android</i></span>
           <span><i class="fab fa-apple"> Apple</i></span>
-          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+
         <a data-scroll href="#full">
           <div class="arrow-down bounce"></div>
         </a>
@@ -23,17 +27,17 @@
     <div class="carding">
       <div class="icon-awesome" ><%= link_to '<i class="far fa-compass"></i>'.html_safe, root_path(anchor: 'full') , id: "landing-icon" %></div>
       <div><h4>Navigate</h4></div>
-      <div class="carding-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p></div>
+      <div class="carding-desc"><p>Find the safest path to your deestination. </p></div>
     </div>
     <div class="carding">
       <div class="icon-awesome"><%= link_to '<i class="far fa-flag"></i>'.html_safe, new_report_path, id: "landing-icon" %></div>
       <div><h4>Report</h4></div>
-      <div class="carding-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+      <div class="carding-desc"><p>Warn others of dangers you've witnessed.</p></div>
     </div>
     <div class="carding">
       <div class="icon-awesome"><%= link_to '<i class="fas fa-fist-raised"></i>'.html_safe, empower_path, id: "landing-icon" %></div>
       <div><h4>Empower</h4></div>
-      <div class="carding-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+      <div class="carding-desc"><p>Master your fears.</p></div>
     </div>
   </div>
 </div>
@@ -68,12 +72,13 @@
                 placeholder: "Somewhere else in Brussels"
                 %>
               </div>
-              <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-between" id="search-icon-toggle">
 
                 <div id="button-to-go">
                   <%= button_tag :submit do %>
-                    <!-- <i class="fas fa-arrow-circle-right"></i> -->
-                    <i class="fas fa-search-location"></i>
+
+                    <i class="fas fa-search-location", id="button-to-go"></i>
+
                   <% end %>
                 </div>
               <% end %>

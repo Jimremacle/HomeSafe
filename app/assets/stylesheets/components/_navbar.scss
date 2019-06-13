@@ -9,7 +9,8 @@
 
   /* height: 74px; */
   a {
-    color: $navbar-link-color-for-real !important;
+    text-decoration: none;
+    color: #484848 !important;
     font-weight: 500;
     text-transform: uppercase;
   }
@@ -39,11 +40,19 @@
   max-width: 200px;
 }
 
+
+.dropdown-item {
+  text-decoration: none;
+  color: #484848;
+  background: $bg-color;
+}
+
 // .dropdown-item {
 //   text-decoration: none;
 //   color: link-color;
 //   background: $bg-color;
 // }
+
 
 .dropdown-item:hover {
   color: $navbar-link-hover-for-real;
@@ -61,8 +70,9 @@
 #login-button-navbar {
   background-color: $bg-color;
   border: none;
-  color: $navbar-link-color-for-real !important;
-  font-weight: 500;
+  color: #484848 !important;
+  font-weight: bold;
+  border: solid 1px #484848;
   text-transform: uppercase;
   padding: 15px 32px;
   text-align: center;
@@ -73,7 +83,8 @@
 }
 
 #login-button-navbar:hover {
-  color: $navbar-link-hover-for-real;
+  color: #2f2f2f !important;
+  border: solid 2px #2f2f2f;
 }
 
 .modal-backdrop {
