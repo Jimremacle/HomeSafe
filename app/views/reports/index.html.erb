@@ -20,17 +20,17 @@
 <div id="div-cards-landing-page">
   <div id="cardings" class="container d-flex">
     <div class="carding">
-      <div class="icon-awesome"><i class="far fa-compass"></i></div>
+      <div class="icon-awesome" ><%= link_to '<i class="far fa-compass"></i>'.html_safe, root_path(anchor: 'full') , id: "landing-icon" %></div>
       <div><h4>Navigate</h4></div>
       <div class="carding-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p></div>
     </div>
     <div class="carding">
-      <div class="icon-awesome"><i class="far fa-flag"></i></div>
+      <div class="icon-awesome"><%= link_to '<i class="far fa-flag"></i>'.html_safe, new_report_path, id: "landing-icon" %></div>
       <div><h4>Report</h4></div>
       <div class="carding-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
     </div>
     <div class="carding">
-      <div class="icon-awesome"><i class="fas fa-fist-raised"></i></div>
+      <div class="icon-awesome"><%= link_to '<i class="fas fa-fist-raised"></i>'.html_safe, empower_path, id: "landing-icon" %></div>
       <div><h4>Empower</h4></div>
       <div class="carding-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
     </div>
@@ -71,7 +71,7 @@
 
                 <div>
                   <%= button_tag :submit do %>
-                    <i class="fas fa-arrow-circle-right"></i>
+                    <i class="fas fa-arrow-circle-right", id="button-to-go"></i>
                   <% end %>
                 </div>
               <% end %>

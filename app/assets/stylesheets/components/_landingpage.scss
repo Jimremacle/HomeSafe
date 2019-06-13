@@ -1,5 +1,5 @@
 .banner {
-  background-image: asset-url("bg_resized.jpg");
+  background-image: asset-url("guilherme-stecanella-587579-unsplash.jpg");
   height: calc(70vh - 56px);
   background-repeat: no-repeat;
   background-size: cover;
@@ -39,6 +39,7 @@
   font-size: 17px;
   width: 140px;
   text-align: center;
+  cursor: pointer;
 }
 
 .fab:hover {
@@ -69,6 +70,13 @@
   text-align: center;
   margin: 10px;
 }
+  #landing-icon{
+    text-decoration: none;
+    color: white;
+  }
+  #landing-icon:hover{
+    color: #61892F;
+  }
 
 @media only screen and (max-width: 600px) {
   .icon-awesome{
@@ -97,7 +105,8 @@
     height: 18vh;
   }
   .icon-awesome{
-  font-size: 36px;
+    font-size: 36px;
+    color: #61892F;
   }
   .carding h4{
     font-size: 20px;
