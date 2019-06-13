@@ -12,6 +12,10 @@
   //box-shadow: 0px 40px 50px  $bg-color inset, -0px -40px 50px 0 $bg-color inset;
 }
 
+#main-landing-div{
+  margin-top: 55px;
+}
+
 #address-buttons {
   background-color: bg-color;
 }
@@ -20,6 +24,7 @@
   color: #FBFBFB;
   font-size: 70px;
   text-shadow: 3px 3px 8px #484848;
+  margin-bottom: 0;
 }
 
 #naviSafe-banner-text b {
@@ -40,7 +45,6 @@
   // border-radius: 40px;
   border-color: rgb(255, 255, 255);
   color: rgb(255, 255, 255);
-  // line-height: 66px;
   border-width: 2px;
   margin: 46px 26px 0px;
   padding: 18px;
@@ -49,6 +53,10 @@
   width: 140px;
   text-align: center;
   cursor: pointer;
+}
+
+.phone-type{
+  font-family: 'Open Sans';
 }
 
 .fab:hover {
@@ -65,6 +73,7 @@
   background-color: $bg-color;
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
 .icon-awesome{
@@ -125,6 +134,7 @@
     justify-content: space-between;
     align-items: center;
     height: 15vh;
+    margin-top: 6px;
   }
   .icon-awesome{
     font-size: 36px;
