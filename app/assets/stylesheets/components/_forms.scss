@@ -8,6 +8,7 @@
   margin-top: 50px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  color: #484848;
   h2 {
     font-size: 25px;
     font-weight: bold;
@@ -31,3 +32,26 @@
 //     margin-bottom: 20px
 //   }
 // }
+
+#query_end{
+  border: solid 0.3px lightgray;
+  border-radius: 5px;
+}
+
+#query_start{
+  border: solid 0.3px lightgray;
+  border-radius: 5px;
+}
+
+.shared-links-color{
+  color: #484848;
+  text-transform: uppercase;
+}
+
+.shared-links-color:hover{
+  color: #2f2f2f;
+  text-decoration: none;
+
+}
+
+

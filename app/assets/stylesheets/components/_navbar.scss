@@ -45,6 +45,7 @@
   text-decoration: none;
   color: #484848;
   background: $bg-color;
+  padding: 0.25rem 0.5rem;
 }
 
 // .dropdown-item {
@@ -80,6 +81,8 @@
   display: inline-block;
   font-size: 16px;
   overflow-y: scroll;
+  padding: 11px;
+  margin-right: 10px;
 }
 
 #login-button-navbar:hover {
@@ -114,28 +117,42 @@
 
 #distress {
   //color: white !important;
-  font-weight: bolder !important;
-  background-color: #FF0000;
-  padding: 10px;
+  //font-weight: bolder !important;
+  background-color: #EA0000;
+  padding: 7px;
   border-radius: 50%;
-  width: 60px;
-  height: 85%;
-  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  //height: 85%;
+  font-size: 25px;
 }
 
 #distress-image {
-  width: 40px;
+  width: 35px;
+  //height: 35px;
 }
 
 
 #distress:hover {
-  background-color: #DD0000;
+  background-color: #CC0000;
 }
 
 #navbarDropdown {
   cursor: pointer;
+  margin-right: 25px;
 }
 
+#ssaunier {
+  width: 70px;
+}
+
+.dropdown-menu-right {
+  top: 55px;
+  border: 0px;
+  text-align: right;
+  box-shadow: 2px 2px 1px 0px gray;
+  right: 24px;
+}
 
 // #the-panic-button {
 //   background-color: #FF0000;
