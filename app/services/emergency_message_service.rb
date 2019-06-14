@@ -1,5 +1,5 @@
 class EmergencyMessageService
-  def initialize(user, current_location = "Brussels")
+  def initialize(user, current_location = "Cantersteen 10, 1000 Brussels")
     @user = user
     @current_location = current_location
     @client = Twilio::REST::Client.new(account_sid, auth_token)
