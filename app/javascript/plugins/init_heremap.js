@@ -69,11 +69,11 @@ const initMap = () => {
       setTimeout(function(){ ui.addBubble(bubble); }, 10);
 
      }, false);
-
+    const markerSize = pixelRatio !== 1 ? {size: {w: 75, h: 75}} : {size: {w: 32, h: 32}}
     //change marker colour based on condition
-    const iconPhysical = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_gbpv0n.png');
-    const iconVerbal = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560163227/icons8-marker-32_3_tvjayi.png');
-    const iconFeeling = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_2_ggypsx.png');
+    const iconPhysical = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_gbpv0n.png', markerSize);
+    const iconVerbal = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560163227/icons8-marker-32_3_tvjayi.png', markerSize);
+    const iconFeeling = new H.map.Icon('https://res.cloudinary.com/khaotyl/image/upload/v1560161914/icons8-marker-32_2_ggypsx.png', markerSize);
 
     actualMarkers.forEach((marker) => {
       if (marker.type == "Physical") {
