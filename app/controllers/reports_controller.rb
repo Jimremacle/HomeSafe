@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
 
 
   def index
-    @reports = policy_scope(Report).where("created_at >= ?", Time.now - 604800)
+    @reports = policy_scope(Report).where("created_at >= ?", Time.now - 604800000)
     start_search
     start_course_plotting
 
